@@ -1,91 +1,12 @@
 'use client';
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useRef, useState } from 'react';
 import styles from './Nav.module.css';
-
-const links = [
-  { href: '/spanforge', label: 'SpanForge' },
-  { href: '/about',     label: 'About' },
-];
-
+const links = [['why', 'Why AInternals'], ['focus', 'Our Focus'], ['building', 'What We’re Building'], ['thinking', 'How We Think']];
 export default function Nav() {
-  const [scrolled,   setScrolled]   = useState(false);
-  const [menuOpen,   setMenuOpen]   = useState(false);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  useEffect(() => {
-    if (menuOpen) document.body.style.overflow = 'hidden';
-    else document.body.style.overflow = '';
-    return () => { document.body.style.overflow = ''; };
-  }, [menuOpen]);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setMenuOpen(false); };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, []);
-
-  return (
-    <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`} aria-label="Main navigation">
-      <div className={`container ${styles.inner}`}>
-        <Link href="/" className={styles.logo} aria-label="ainternals home">
-          <span className={styles.logoAi}>Ai</span>
-          <span className={styles.logoInternals}>nternals</span>
-        </Link>
-
-        {/* Desktop links */}
-        <ul className={styles.links} role="list">
-          {links.map(({ href, label }) => (
-            <li key={href}>
-              <Link
-                href={href}
-                className={`${styles.link} ${pathname === href ? styles.active : ''}`}
-                aria-current={pathname === href ? 'page' : undefined}
-              >
-                {label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        {/* Hamburger */}
-        <button
-          className={styles.hamburger}
-          aria-expanded={menuOpen}
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <span className={`${styles.bar} ${menuOpen ? styles.barOpen : ''}`} />
-          <span className={`${styles.bar} ${menuOpen ? styles.barOpen : ''}`} />
-          <span className={`${styles.bar} ${menuOpen ? styles.barOpen : ''}`} />
-        </button>
-      </div>
-
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div className={styles.mobileMenu} role="dialog" aria-modal="true" aria-label="Mobile navigation">
-          <ul role="list">
-            {links.map(({ href, label }) => (
-              <li key={href}>
-                <Link
-                  href={href}
-                  className={`${styles.mobileLink} ${pathname === href ? styles.mobileLinkActive : ''}`}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </nav>
-  );
+    const [open, setOpen] = useState(false);
+    const toggle = useRef<HTMLButtonElement>(null);
+    return <header className={styles.header} onKeyDown={e => { if (e.key === 'Escape') {
+        setOpen(false);
+        toggle.current?.focus();
+    } }}><div className={`container ${styles.inner}`}><a href="/" className={styles.logo} aria-label="AInternals home"><span className={styles.mark} aria-hidden="true">ai</span>AInternals<span className={styles.logoDot}>.</span></a><nav aria-label="Main navigation" className={styles.desktop}>{links.map(([id, label]) => <a key={id} href={`/#${id}`}>{label}</a>)}</nav><a href="/#connect" className={styles.contact}>Let’s Talk <span aria-hidden="true">↗</span></a><button ref={toggle} type="button" className={styles.toggle} aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? 'Close navigation' : 'Open navigation'} onClick={() => setOpen(!open)}>{open ? 'Close −' : 'Menu +'}</button></div><nav id="mobile-navigation" hidden={!open} aria-label="Mobile navigation" className={styles.mobile}>{[...links, ['connect', 'Let’s Talk']].map(([id, label]) => <a key={id} href={`/#${id}`} onClick={() => setOpen(false)}>{label}<span aria-hidden="true">↗</span></a>)}</nav></header>;
 }

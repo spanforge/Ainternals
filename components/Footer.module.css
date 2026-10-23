@@ -1,95 +1,52 @@
-/* Footer — ainternals.com per STYLE-GUIDE §13 */
-
 .footer {
-  background: var(--charcoal);
-  border-top: 1px solid var(--rule);
-  padding-top: 4rem;
+  border-top:1px solid var(--line);
+  padding:30px 0
 }
-
 .inner {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr;
-  gap: 3rem;
-  padding-bottom: 3rem;
+  display:flex;
+  align-items:center;
+  gap:30px
 }
-
-.brand { display: flex; flex-direction: column; gap: 0.5rem; }
-
 .logo {
-  display: inline-flex;
-  align-items: baseline;
-  font-family: var(--font-playfair, 'Nunito', sans-serif);
-  font-size: 1.25rem;
-  font-weight: 700;
-  text-decoration: none;
-  margin-bottom: 0.25rem;
+  font-size:20px;
+  letter-spacing:-.8px;
+  font-weight:600
 }
-.logoAi        { color: var(--white); }
-.logoInternals { color: var(--red); }
-
-.tagline {
-  font-family: var(--font-dm-sans, 'Inter', sans-serif);
-  font-size: 0.82rem;
-  color: var(--light);
-  font-weight: 500;
+.logo span {
+  color:var(--accent)
 }
-
-.sub {
-  font-family: var(--font-dm-sans, 'Inter', sans-serif);
-  font-size: 0.82rem;
-  color: var(--mid);
-  line-height: 1.55;
+.inner p {
+  font-size:11px;
+  color:var(--muted)
 }
-
-.sfLink {
-  font-family: var(--font-dm-mono, 'JetBrains Mono', monospace);
-  font-size: 0.75rem;
-  color: var(--red);
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 0.25rem;
-  transition: color 0.2s;
-}
-.sfLink:hover { color: var(--red-light); }
-
-.col { display: flex; flex-direction: column; gap: 0.625rem; }
-
-.colHead {
-  font-family: var(--font-dm-mono, 'JetBrains Mono', monospace);
-  font-size: 0.7rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--red);
-  margin-bottom: 0.25rem;
-}
-
-.colLink {
-  font-family: var(--font-dm-sans, 'Inter', sans-serif);
-  font-size: 0.82rem;
-  color: var(--mid);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.colLink:hover { color: var(--light); }
-
-.bottom {
-  border-top: 1px solid var(--rule);
-  padding: 1.25rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .copyright {
-  font-family: var(--font-dm-mono, 'JetBrains Mono', monospace);
-  font-size: 0.72rem;
-  color: var(--mid);
+  font-size:10px;
+  color:var(--muted);
+  margin-left:auto
+}
+.top {
+  border:1px solid var(--line);
+  width:33px;
+  height:33px;
+  display:grid;
+  place-items:center;
+  font-size:17px
+}
+@media(max-width:760px) {
+  .inner {
+  flex-wrap:wrap;
+  gap:16px
+}
+.inner p {
+  width:calc(100% - 140px)
+}
+.copyright {
+  margin-left:0;
+  flex:1
+}
+.top {
+  margin-left:auto
 }
 
-@media (max-width: 900px) {
-  .inner { grid-template-columns: 1fr 1fr; }
 }
-@media (max-width: 600px) {
-  .inner { grid-template-columns: 1fr; gap: 2rem; }
-}
+
