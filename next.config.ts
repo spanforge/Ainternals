@@ -1,5 +1,12 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {};
+const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      { source: "/about", destination: "/#about", permanent: true },
+      { source: "/spanforge", destination: "/", permanent: true },
+    ];
+  },
+};
 
 export default nextConfig;

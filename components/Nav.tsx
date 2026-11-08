@@ -1,4 +1,18 @@
+import Link from 'next/link';
 import styles from './Nav.module.css';
+
 export default function Nav() {
-  return <header className={styles.header}><div className={`container ${styles.inner}`}><a href="/" className={styles.brand} aria-label="AInternals home">AInternals<span>.</span></a><nav aria-label="Main navigation"><a href="/#about">About</a><a href="/#where-we-are">Where we are</a></nav></div></header>;
+  return (
+    <header className={styles.header}>
+      <div className={`container ${styles.inner}`}>
+        <Link href="/" className={styles.brand} aria-label="AInternals home">
+          AInternals<span>.</span>
+        </Link>
+        <nav aria-label="Main navigation">
+          <Link href="/#about">About</Link>
+          <Link href="/#where-we-are">Where we are</Link>
+        </nav>
+      </div>
+    </header>
+  );
 }

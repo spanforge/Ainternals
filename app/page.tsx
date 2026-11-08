@@ -1,6 +1,14 @@
 import Image from 'next/image';
 import styles from './page.module.css';
 
+const areasOfInterest = [
+  'AI infrastructure and computing costs',
+  'Investment and capital allocation',
+  'AI business models',
+  'Productivity',
+  'Long-term economic sustainability of AI',
+];
+
 export default function HomePage() {
   return (
     <>
@@ -25,7 +33,14 @@ export default function HomePage() {
             <p>We are exploring how artificial intelligence is changing the economics of technology, business, and society.</p>
             <div className={styles.interests}>
               <h3>Our areas of interest</h3>
-              <ul>{['AI infrastructure and computing costs', 'Investment and capital allocation', 'AI business models', 'Productivity', 'Long-term economic sustainability of AI'].map((area, index) => <li key={area}><span aria-hidden="true">0{index + 1}</span>{area}</li>)}</ul>
+              <ul>
+                {areasOfInterest.map((area, index) => (
+                  <li key={area}>
+                    <span aria-hidden="true">0{index + 1}</span>
+                    {area}
+                  </li>
+                ))}
+              </ul>
             </div>
             <p>We believe understanding AI requires looking beyond what the technology can do to examine what it costs, what value it creates, and whether that value can be sustained.</p>
           </div>
