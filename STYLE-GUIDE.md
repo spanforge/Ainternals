@@ -1,12 +1,10 @@
 ﻿# AInternals design guide
 
-The new specification supersedes the previous SpanForge visual identity.
-
-- Warm paper #f7f7f0; alternating wash #eeefe6; ink #252b22; muted text #64695c; terracotta accent #b94724; rules #d7d9cc.
-- System sans-serif for headings and body; Courier New for numbered labels and diagram annotations. No remote fonts.
-- Content width 1200px, desktop gutters 40px, mobile gutters 24px.
-- Large, tightly spaced headlines; numbered editorial sections; thin rules; square buttons; minimal decoration.
-- CSS Modules for components and page composition, global CSS for shared tokens and utilities.
-- Collapse hero and split sections at 760px; focus grid changes from three to two to one column; navigation changes at 850px.
-- Semantic headings and landmarks, skip navigation, visible keyboard focus, decorative SVG hidden from assistive technology, reduced-motion support.
-- Describe engineering and software as developing directions; do not imply released products or invent customer evidence.
+- AI economics is the current focus. Use the supplied early-stage startup copy; avoid claims of established research, advisory services, or released products.
+- Use `public/ainternals-growth-monogram.png`, copied from the supplied AInternals Growth Monogram.png, without alteration.
+- Navy background #040b2b, section wash #091334, text #f4f7ff, muted text #b3bfd7, cyan accent #37d9ed, rules #233050.
+- Georgia serif headings with italic cyan emphasis in the hero; Segoe UI/system sans-serif body text. Use readable 12px labels, thin rules, and restrained editorial spacing.
+- Frame the supplied artwork to show its monogram using CSS, preserving the original file. Blend it into the navy background; use 280px on desktop and 112px on mobile. Present the five areas of interest as a numbered list.
+- CSS Modules for component layout; shared tokens and accessibility utilities in global CSS.
+- Responsive single-column layouts below 760px; navigation stays compact without a menu toggle.
+- Preserve semantic headings, skip navigation, visible keyboard focus, and reduced-motion support.

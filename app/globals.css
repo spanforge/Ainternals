@@ -1,11 +1,12 @@
 :root {
-  --paper:#f7f7f0;
-  --wash:#eeefe6;
-  --ink:#252b22;
-  --muted:#64695c;
-  --accent:#b94724;
-  --line:#d7d9cc;
+  --paper:#040b2b;
+  --wash:#091334;
+  --ink:#f4f7ff;
+  --muted:#b3bfd7;
+  --accent:#37d9ed;
+  --line:#233050;
   --mono:'Courier New',monospace;
+  --serif:Georgia,'Times New Roman',serif;
   --max-width:1200px;
   --side-padding:40px
 }
@@ -21,7 +22,7 @@ html {
 body {
   background:var(--paper);
   color:var(--ink);
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:'Segoe UI',Arial,Helvetica,sans-serif;
   font-size:16px;
   line-height:1.7;
   -webkit-font-smoothing:antialiased
@@ -37,7 +38,7 @@ svg {
   display:block
 }
 ::selection {
-  background:#e5baa4;
+  background:#194567;
   color:var(--ink)
 }
 .container {
@@ -48,10 +49,10 @@ svg {
   margin:0 auto
 }
 .eyebrow {
-  font-family:var(--mono);
-  font-size:10px;
+  font-family:inherit;
+  font-size:12px;
   line-height:1.5;
-  letter-spacing:.09em;
+  letter-spacing:.075em;
   text-transform:uppercase;
   display:flex;
   align-items:center;
@@ -113,5 +114,6 @@ main {
 }
 
 }
+
 
 

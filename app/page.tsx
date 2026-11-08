@@ -1,25 +1,47 @@
+import Image from 'next/image';
 import styles from './page.module.css';
-const focusAreas = [
-    ['Business Process Understanding', 'Understanding how work actually happens, including decisions, dependencies, exceptions, and opportunities for automation.'],
-    ['Data & Context', 'Making enterprise data and business context accessible, relevant, secure, and reliable for AI-driven workflows.'],
-    ['Reliability & Human Oversight', 'Evaluating agent behavior, establishing safeguards, and ensuring people can intervene when systems require judgment or recovery.'],
-    ['Production Engineering', 'Integrating, deploying, observing, troubleshooting, and operating Agentic AI systems within enterprise environments.'],
-    ['AI Economics', 'Understanding and optimizing the total cost of running Agentic AI, including model usage, infrastructure, retries, and operational overhead.'],
-    ['Business Outcomes', 'Measuring whether Agentic AI improves the business processes it was introduced to support.'],
-];
-const principles = [['Reliable', 'operate'], ['Transparent', 'investigate'], ['Secure', 'trust'], ['Economical', 'sustain'], ['Useful', 'justify']];
-function Label({ number, children }: {
-    number: string;
-    children: React.ReactNode;
-}) { return <p className="eyebrow"><span>{number}</span><span className={styles.labelRule}/>{children}</p>; }
-function Diagram() { return <div className={styles.diagram} aria-hidden="true"><div className={styles.diagramTop}><span>THE PRODUCTION ENVIRONMENT</span><span>SYS / 01</span></div><div className={styles.orbit}><div className={styles.orbitInner}/><div className={styles.core}><span>Ai</span><small>AGENTIC AI</small></div><span className={`${styles.node} ${styles.nodeOne}`}>BUSINESS PROCESS</span><span className={`${styles.node} ${styles.nodeTwo}`}>DATA & CONTEXT</span><span className={`${styles.node} ${styles.nodeThree}`}>HUMAN OVERSIGHT</span><span className={`${styles.node} ${styles.nodeFour}`}>OPERATIONS</span><span className={styles.orbitDot}/></div><div className={styles.diagramBottom}><span><i /> ENGINEERED FOR REALITY</span><span>↗</span></div></div>; }
+
 export default function HomePage() {
-    return <>
- <section className={styles.hero} aria-labelledby="hero-title"><div className={`container ${styles.heroGrid}`}><div className={styles.heroCopy}><p className="eyebrow"><span className={styles.statusDot}/>ENGINEER · DEPLOY · OPERATE</p><h1 id="hero-title">AI Agents That Work <span>Beyond the Demo.</span></h1><p className={styles.heroLead}>Building an AI agent is becoming easier.<br />Making it work reliably within an enterprise is a different challenge.</p><p>AInternals is focused on helping organizations engineer, deploy, and operate Agentic AI solutions that can function within real business environments.</p><div className={styles.heroActions}><a className="button" href="#focus">Explore our focus <span aria-hidden="true">↗</span></a><a className={styles.textLink} href="#why">Why AInternals <span aria-hidden="true">↓</span></a></div></div><Diagram /></div><div className={`container ${styles.heroFoot}`}><p>Our interest extends beyond getting agents to execute tasks. We focus on the engineering, operational, and economic challenges of making them useful in production.</p><span>Engineering Agentic AI<br /><strong>for Enterprise Reality.</strong></span></div></section>
- <section id="why" className={styles.section} aria-labelledby="why-title"><div className={`container ${styles.split}`}><div><Label number="01">Why AInternals Exists</Label><h2 id="why-title">The real challenge begins <span>after the prototype.</span></h2></div><div className={styles.prose}><p className={styles.lead}>Enterprise environments are complex.</p><p>Business processes contain exceptions. Data is distributed across systems. Applications have dependencies. Security and governance matter. Agents can behave unpredictably, and operating costs require careful management.</p><p>A successful demonstration does not automatically translate into a dependable production system.</p><p>We believe Agentic AI needs the same engineering discipline that enterprises expect from other critical software systems.</p><p className={styles.emphasis}>That belief is the foundation of AInternals.</p></div></div></section>
- <section id="focus" className={`${styles.section} ${styles.focusSection}`} aria-labelledby="focus-title"><div className="container"><Label number="02">What We Focus On</Label><div className={styles.sectionHeading}><h2 id="focus-title">Six challenges.<br /><span>One engineering mission.</span></h2><p>From understanding the work<br />to measuring its impact.</p></div><div className={styles.focusGrid}>{focusAreas.map(([title, description], i) => <article className={styles.focusItem} key={title}><div className={styles.itemTop}><span>0{i + 1}</span><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d={['M8 10h10v10H8zM22 20h10v10H22zM18 15h9v5M13 20v5h9', 'M7 12l13-6 13 6-13 7zM7 20l13 7 13-7M7 28l13 7 13-7', 'M20 5l13 6v10c0 7-13 14-13 14S7 28 7 21V11zM14 20l4 4 9-10', 'M7 9h26v22H7zM7 16h26M13 23l4 3-4 3M21 28h6', 'M8 31V21h6v10M17 31V14h6v17M26 31V7h6v24', 'M6 20h28M23 9l11 11-11 11M6 9v22'][i]}/></svg></div><h3>{title}</h3><p>{description}</p></article>)}</div></div></section>
- <section id="building" className={styles.section} aria-labelledby="building-title"><div className="container"><Label number="03">What We Are Building</Label><div className={styles.sectionHeading}><h2 id="building-title">Engineering expertise<br /><span>supported by software.</span></h2><p>AInternals is being developed around<br />two complementary directions.</p></div><div className={styles.buildGrid}><article className={styles.buildItem}><span className="eyebrow">01 / ENGINEERING</span><h3>Enterprise Agentic<br />AI Engineering</h3><p>Engineering capabilities to help organizations move from experimentation to production, with attention to integration, reliability, security, monitoring, and operational readiness.</p><span className={styles.buildSymbol} aria-hidden="true">[ ↗ ]</span></article><article className={styles.buildItem}><span className="eyebrow">02 / SOFTWARE</span><h3>Agentic AI<br />Engineering Software</h3><p>Software tools intended to support the testing, evaluation, observability, governance, and operational management of AI agents.</p><span className={styles.buildSymbol} aria-hidden="true">[ + ]</span></article></div><div className={styles.buildNote}><p>Our goal is to connect practical engineering experience with reusable software capabilities.</p><p>We intend to build around real problems, validate our approaches, and improve through evidence.</p></div></div></section>
- <section id="thinking" className={`${styles.section} ${styles.thinking}`} aria-labelledby="thinking-title"><div className={`container ${styles.split}`}><div><Label number="04">How We Think</Label><h2 id="thinking-title">Production is<br /><span>the real test.</span></h2><div className={styles.thinkingCopy}><p>An agent that completes a demonstration is promising.</p><p>An agent that performs reliably within a business process, respects operational boundaries, supports human oversight, and delivers measurable value is something more.</p></div></div><div><p className={styles.principleIntro}>We believe enterprise Agentic AI should be:</p><ol className={styles.principles}>{principles.map(([word, action], i) => <li key={word}><span className={styles.principleNumber}>0{i + 1}</span><p><strong>{word}</strong> enough to {action}.</p><span aria-hidden="true">↗</span></li>)}</ol><p className={styles.principleFoot}>These principles guide the direction of AInternals.</p></div></div></section>
- <section id="connect" className={`${styles.section} ${styles.connect}`} aria-labelledby="connect-title"><div className={`container ${styles.connectGrid}`}><div><Label number="05">Connect</Label><h2 id="connect-title">Let’s discuss Agentic AI<br /><span>beyond the demo.</span></h2></div><div className={styles.connectCopy}><p>We are interested in conversations with engineering teams, architects, technology leaders, and organizations working through the challenges of enterprise Agentic AI.</p><p>Whether you are exploring an idea, developing a prototype, or thinking about production readiness, we would welcome a conversation.</p><a className="button" href="mailto:sriram@sriramadvisory.com">Get in Touch <span aria-hidden="true">↗</span></a><a className={styles.email} href="mailto:sriram@sriramadvisory.com">sriram@sriramadvisory.com</a></div></div></section>
- </>;
+  return (
+    <>
+      <section className={styles.hero} aria-labelledby="hero-title">
+        <div className={`container ${styles.heroGrid}`}>
+          <div>
+            <p className="eyebrow">An early-stage AI economics startup</p>
+            <h1 id="hero-title">The Economics<br />of <span>Intelligence.</span></h1>
+            <p className={styles.subtitle}>Understanding the economics behind artificial intelligence.</p>
+          </div>
+          <div className={styles.monogram}>
+            <Image className={styles.logo} src="/ainternals-growth-monogram.png" alt="AInternals growth monogram" width={1254} height={1254} sizes="(max-width: 760px) 213px, 532px" preload />
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className={styles.section} aria-labelledby="about-title">
+        <div className={`container ${styles.split}`}>
+          <h2 id="about-title">Understanding<br />AI economics.</h2>
+          <div className={styles.prose}>
+            <p className={styles.lead}>AInternals is an early-stage startup focused on AI economics.</p>
+            <p>We are exploring how artificial intelligence is changing the economics of technology, business, and society.</p>
+            <div className={styles.interests}>
+              <h3>Our areas of interest</h3>
+              <ul>{['AI infrastructure and computing costs', 'Investment and capital allocation', 'AI business models', 'Productivity', 'Long-term economic sustainability of AI'].map((area, index) => <li key={area}><span aria-hidden="true">0{index + 1}</span>{area}</li>)}</ul>
+            </div>
+            <p>We believe understanding AI requires looking beyond what the technology can do to examine what it costs, what value it creates, and whether that value can be sustained.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="where-we-are" className={`${styles.section} ${styles.today}`} aria-labelledby="today-title">
+        <div className={`container ${styles.split}`}>
+          <div><p className="eyebrow">Our foundation</p><h2 id="today-title">Where We Are Today</h2></div>
+          <div className={styles.prose}>
+            <p className={styles.lead}>AInternals is at an early stage of development.</p>
+            <p>We are currently learning, researching, and shaping our direction. Our ambition is to build a thoughtful, evidence-led perspective on the economics of artificial intelligence.</p>
+            <p>We are not presenting ourselves as an established research institution or advisory firm. We are building our foundation, one step at a time.</p>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }
