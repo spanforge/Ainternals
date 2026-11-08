@@ -1,7 +1,7 @@
 
 .hero { padding: 56px 0 60px; }
 .heroGrid { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 64px; align-items: center; }
-.hero h1 { margin: 24px 0; font-family: var(--serif); font-size: clamp(3.3rem, 6.2vw, 5.8rem); font-weight: 400; line-height: 1.06; letter-spacing: -.045em; }
+.hero h1 { margin: 24px 0; font-family: var(--serif); font-size: clamp(3.3rem, 6.2vw, 5.8rem); font-weight: 400; line-height: 1.06; letter-spacing: -.045em; overflow-wrap: anywhere; }
 .hero h1 span { color: var(--accent); font-style: italic; }
 .subtitle { max-width: 450px; color: var(--muted); font-size: 19px; line-height: 1.65; }
 /* Frame the original artwork around its monogram, without changing the source asset. */
@@ -29,7 +29,7 @@
 @media (max-width: 760px) {
  .hero { padding: 40px 0; }
  .heroGrid, .split { grid-template-columns: minmax(0, 1fr); gap: 24px; }
- .hero h1 { margin: 20px 0; font-size: clamp(2.65rem, 8.7vw, 4.2rem); letter-spacing: -.04em; }
+ .hero h1 { margin: 20px 0; font-size: clamp(2rem, 8.7vw, 4.2rem); letter-spacing: -.04em; }
  .monogram { justify-self: start; width: 112px; }
  .subtitle { font-size: 17px; max-width: 380px; }
  .section { padding: 44px 0; }

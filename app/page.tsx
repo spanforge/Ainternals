@@ -20,7 +20,7 @@ export default function HomePage() {
             <p className={styles.subtitle}>Understanding the economics behind artificial intelligence.</p>
           </div>
           <div className={styles.monogram}>
-            <Image className={styles.logo} src="/ainternals-growth-monogram.png" alt="AInternals growth monogram" width={1254} height={1254} sizes="(max-width: 760px) 213px, 532px" preload />
+            <Image className={styles.logo} src="/ainternals-growth-monogram.png" alt="AInternals growth monogram" width={1254} height={1254} sizes="(max-width: 760px) 213px, (max-width: 1000px) 418px, 532px" preload />
           </div>
         </div>
       </section>

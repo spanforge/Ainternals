@@ -1,8 +1,8 @@
 .header { border-bottom: 1px solid var(--line); }
-.inner { min-height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.inner { min-height: 88px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding-top: 12px; padding-bottom: 12px; }
 .brand { font-size: 25px; font-weight: 600; letter-spacing: -.04em; }
 .brand span { color: var(--accent); }
-.inner nav { display: flex; gap: 26px; font-size: 14px; color: var(--muted); }
+.inner nav { display: flex; flex-wrap: wrap; gap: 8px 26px; font-size: 14px; color: var(--muted); }
 .inner nav a { display: inline-flex; align-items: center; min-height: 44px; }
 .inner nav a:hover { color: var(--accent); }
 @media(max-width: 450px) { .inner { min-height: 72px; gap: 12px; } .inner nav { gap: 14px; font-size: 13px; } .brand { font-size: 22px; } }
