@@ -1,0 +1,52 @@
+export const providers = {
+  OpenAI: 'https://developers.openai.com/api/docs/pricing',
+  Anthropic: 'https://platform.claude.com/docs/en/about-claude/pricing',
+  Google: 'https://ai.google.dev/gemini-api/docs/pricing',
+  xAI: 'https://docs.x.ai/developers/models/grok-4.7',
+  DeepSeek: 'https://api-docs.deepseek.com/quick_start/pricing/',
+  Mistral: 'https://docs.mistral.ai/inference/pricing',
+  'Alibaba Cloud': 'https://www.alibabacloud.com/help/en/model-studio/model-pricing',
+  'Moonshot AI': 'https://platform.kimi.ai/docs/pricing/chat',
+  MiniMax: 'https://platform.minimax.io/docs/pricing/overview',
+  'Z.ai': 'https://docs.z.ai/guides/overview/pricing',
+} as const;
+export const selectionReviewedOn = '2026-11-13';
+export const providerCatalogs = {
+  OpenAI: 'https://developers.openai.com/api/docs/models',
+  Anthropic: 'https://platform.claude.com/docs/en/models/overview',
+  Google: 'https://ai.google.dev/gemini-api/docs/models',
+  xAI: 'https://docs.x.ai/developers/models',
+  DeepSeek: 'https://api-docs.deepseek.com/quick_start/pricing/',
+  Mistral: 'https://docs.mistral.ai/models',
+  'Alibaba Cloud': 'https://www.alibabacloud.com/help/en/model-studio/models',
+  'Moonshot AI': 'https://platform.kimi.ai/docs/guide/kimi-k3-1-pro-quickstart',
+  MiniMax: 'https://platform.minimax.io/docs/pricing/overview',
+  'Z.ai': 'https://docs.z.ai/guides/overview/pricing',
+} as const;
+export type FeaturedModel = { provider: keyof typeof providers; modelId: string; apiModelId?: string; displayName: string };
+// Actual provider API identifiers. Rates and billing scopes come from official adapters.
+export const featuredModels: FeaturedModel[] = [
+  { provider: 'OpenAI', modelId: 'gpt-6-astra', displayName: 'GPT-6 Astra' },
+  { provider: 'OpenAI', modelId: 'gpt-6.1-sol', displayName: 'GPT-6.1 Sol' },
+  { provider: 'OpenAI', modelId: 'gpt-6.1-terra', displayName: 'GPT-6.1 Terra' },
+  { provider: 'OpenAI', modelId: 'gpt-6-luna', displayName: 'GPT-6 Luna' },
+  { provider: 'Anthropic', modelId: 'claude-fable-5-2', displayName: 'Claude Fable 5.2' },
+  { provider: 'Anthropic', modelId: 'claude-opus-5-5', displayName: 'Claude Opus 5.5' },
+  { provider: 'Anthropic', modelId: 'claude-sonnet-5-5', displayName: 'Claude Sonnet 5.5' },
+  { provider: 'Anthropic', modelId: 'claude-haiku-5-5', displayName: 'Claude Haiku 5.5' },
+  { provider: 'Google', modelId: 'gemini-4-carbon', displayName: 'Gemini 4 Carbon' },
+  { provider: 'Google', modelId: 'gemini-4-argon', displayName: 'Gemini 4 Argon' },
+  { provider: 'Google', modelId: 'gemini-4-hydrogen', displayName: 'Gemini 4 Hydrogen' },
+  { provider: 'xAI', modelId: 'grok-4.7', displayName: 'Grok 4.7' },
+  { provider: 'DeepSeek', modelId: 'deepseek-flash', displayName: 'DeepSeek V4.1 Flash' },
+  { provider: 'DeepSeek', modelId: 'deepseek-v4-pro', displayName: 'DeepSeek V4 Pro' },
+  { provider: 'Mistral', modelId: 'mistral-large-4', displayName: 'Mistral Large 4' },
+  { provider: 'Mistral', modelId: 'mistral-small-2603', displayName: 'Mistral Small 4' },
+  { provider: 'Alibaba Cloud', modelId: 'qwen3.8-max', displayName: 'Qwen 3.8 Max' },
+  { provider: 'Alibaba Cloud', modelId: 'qwen3.8-flash', displayName: 'Qwen 3.8 Flash' },
+  { provider: 'Moonshot AI', modelId: 'kimi-k3.1-pro', displayName: 'Kimi K3.1 Pro' },
+  { provider: 'MiniMax', modelId: 'MiniMax-M3', displayName: 'MiniMax M3' },
+  { provider: 'MiniMax', modelId: 'MiniMax-M3.1-Flash', displayName: 'MiniMax M3.1 Flash' },
+  { provider: 'Z.ai', modelId: 'glm-5.3', displayName: 'GLM 5.3' },
+  { provider: 'Z.ai', modelId: 'glm-5.3-flash', displayName: 'GLM 5.3 Flash' },
+];

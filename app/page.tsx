@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import { connection } from 'next/server';
+import ModelPriceTicker from '@/components/ModelPriceTicker';
 import styles from './page.module.css';
 
 const areasOfInterest = [
@@ -9,9 +11,11 @@ const areasOfInterest = [
   'Long-term economic sustainability of AI',
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  await connection();
   return (
     <>
+      <ModelPriceTicker />
       <section className={styles.hero} aria-labelledby="hero-title">
         <div className={`container ${styles.heroGrid}`}>
           <div>

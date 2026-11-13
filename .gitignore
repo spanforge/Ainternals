@@ -42,3 +42,9 @@ next-env.d.ts
 
 # Workspace dependency cache
 /.npm-cache/
+
+# Local implementation specification
+/AInternals_AI_Model_Price_Watch_V2_Lightweight_Spec.md
+
+# Isolated local browser QA profile
+/.browser-qa/

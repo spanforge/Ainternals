@@ -10,7 +10,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "verify:pricing": "node --experimental-strip-types scripts/verify-pricing.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
