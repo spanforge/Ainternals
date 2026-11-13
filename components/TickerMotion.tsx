@@ -88,14 +88,13 @@ export default function TickerMotion({ items, initialNow }: { items: TickerItem[
   const motionLabel = browsing || (compact && !mobilePlaying) ? 'Play ticker' : paused ? 'Resume ticker' : 'Pause ticker';
   return <div className={styles.tickerMotion}>
     <div className={`container ${styles.tickerControls}`}>
-      <p>{reducedMotion ? 'Reduced motion · browse manually' : manual ? 'Swipe or use the arrows to browse' : 'Select a model to compare its pricing'}</p>
       <div className={styles.tickerButtons}>
         <button type="button" className={styles.browseTicker} aria-label="Previous featured model" onClick={() => browse(active - 1)} disabled={manual && active === 0}>←</button>
         {!reducedMotion && <button type="button" className={styles.pause} aria-pressed={compact && !mobilePlaying ? false : paused} onClick={toggleMotion}>{motionLabel}</button>}
         <button type="button" className={styles.browseTicker} aria-label="Next featured model" onClick={() => browse(manual ? active + 1 : nearest() + 1)} disabled={manual && active === items.length - 1}>→</button>
       </div>
     </div>
-    <div ref={viewport} className={styles.tickerViewport} data-manual={manual} data-mobile-play={mobilePlaying} role="region" aria-label="Featured AI model rates; horizontally scrollable" tabIndex={0}
+    <div ref={viewport} className={styles.tickerViewport} data-manual={manual} data-mobile-play={mobilePlaying} role="region" aria-label="Featured AI model rates in USD per million text tokens; horizontally scrollable" tabIndex={0}
       onFocusCapture={onFocus} onBlurCapture={onBlur} onPointerDown={onPointerDown}
       onMouseEnter={() => { if (!compact) setHovered(true); }} onMouseLeave={() => setHovered(false)}
       onScroll={() => { if (manual) setActive(nearest()); }}>
@@ -105,7 +104,7 @@ export default function TickerMotion({ items, initialNow }: { items: TickerItem[
             const status = tickerStatus(item, clock);
             const unavailable = status === 'unavailable';
             return <Link key={item.modelId} href={item.href} prefetch={false} tabIndex={copy === 1 ? -1 : 0} className={styles.quote} data-provider={item.provider} data-model={item.modelId} data-status={status}
-              title={`${item.displayName}: ${item.qualifier}. ${item.fetchedAt ? `Fetched ${item.fetchedAt}` : 'No successful source fetch'}.`}>
+              title={`${item.displayName}: USD per million text tokens. ${item.qualifier}. ${item.fetchedAt ? `Fetched ${item.fetchedAt}` : 'No successful source fetch'}.`}>
               <b><i aria-hidden="true" />{item.provider} · {item.displayName}<span aria-hidden="true">↗</span></b>
               <span className={styles.tickerRates}>{unavailable ? 'Rates unavailable' : <>IN <em>{formatPrice(item.input)}</em> <span className={styles.quoteDivider}>/</span> OUT <em className={styles.quoteOutput}>{formatPrice(item.output)}</em></>}</span>
               <span className={styles.quoteMeta}><small>{unavailable ? 'Check official source' : item.qualifier}</small><span className={styles.quoteStatus}>{status === 'fresh' ? 'Current' : status === 'stale' ? 'Stale' : 'Unavailable'}</span></span>
