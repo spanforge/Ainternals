@@ -159,7 +159,10 @@
 .official div a { display:inline-flex; align-items:center; min-height:44px; font-size:14px; }
 .ticker { position:relative; padding:6px 0; background:linear-gradient(100deg,#0c1d3b,#0c1431 60%,#191635); border-block:1px solid #304369; overflow:hidden; }
 .tickerControls { display:flex; justify-content:flex-end; }
-.tickerButtons { display:flex; gap:8px; }
+.tickerButtons { display:flex; gap:4px; flex-wrap:wrap; justify-content:flex-end; }
+.tickerButtons[hidden],.tickerViewport[hidden] { display:none; }
+.collapseTicker { min-height:44px; padding:8px; background:transparent; border:0; color:var(--muted); font:12px 'Segoe UI',sans-serif; cursor:pointer; }
+.collapseTicker:focus-visible { outline:2px solid var(--accent); outline-offset:-2px; }
 .pause,.browseTicker { min-height:44px; min-width:44px; padding:8px 12px; color:var(--ink); background:#0b1733; border:1px solid #354767; border-radius:5px; font:13px 'Segoe UI',sans-serif; cursor:pointer; }
 .browseTicker:disabled { opacity:.4; cursor:default; }
 .pause:focus-visible,.browseTicker:focus-visible,.quote:focus-visible,.tickerViewport:focus-visible { outline:2px solid var(--accent); outline-offset:-3px; }

@@ -8,6 +8,16 @@ import styles from './Prices.module.css';
 const PAUSE_KEY = 'ainternals-price-ticker-paused';
 const PAUSE_EVENT = 'ainternals-ticker-pause-change';
 let fallbackPause = false;
+let fallbackCollapsed = false;
+const COLLAPSE_KEY = 'ainternals-price-ticker-collapsed';
+function collapseSnapshot() {
+  try { const value = sessionStorage.getItem(COLLAPSE_KEY); return value === null ? fallbackCollapsed : value === 'true'; } catch { return fallbackCollapsed; }
+}
+function saveCollapsed(value: boolean) {
+  fallbackCollapsed = value;
+  try { sessionStorage.setItem(COLLAPSE_KEY, String(value)); } catch { /* Still works without storage. */ }
+  window.dispatchEvent(new Event(PAUSE_EVENT));
+}
 function pauseSnapshot() {
   try { const value = sessionStorage.getItem(PAUSE_KEY); return value === null ? fallbackPause : value === 'true'; } catch { return fallbackPause; }
 }
@@ -28,6 +38,7 @@ function useMedia(query: string) {
 }
 export default function TickerMotion({ items, initialNow }: { items: TickerItem[]; initialNow: number }) {
   const paused = useSyncExternalStore(subscribePause, pauseSnapshot, () => false);
+  const collapsed = useSyncExternalStore(subscribePause, collapseSnapshot, () => false);
   const compact = useMedia('(max-width: 1023px)');
   const reducedMotion = useMedia('(prefers-reduced-motion: reduce)');
   const [mobilePlaying, setMobilePlaying] = useState(false);
@@ -42,7 +53,7 @@ export default function TickerMotion({ items, initialNow }: { items: TickerItem[
   const viewport = useRef<HTMLDivElement>(null);
   const group = useRef<HTMLDivElement>(null);
   const manual = reducedMotion || focused || browsing || (compact && !mobilePlaying);
-  const stopped = paused || !visible || !pageVisible || hovered || manual;
+  const stopped = collapsed || paused || !visible || !pageVisible || hovered || manual;
   useEffect(() => {
     const element = viewport.current;
     if (!element) return;
@@ -89,12 +100,15 @@ export default function TickerMotion({ items, initialNow }: { items: TickerItem[
   return <div className={styles.tickerMotion}>
     <div className={`container ${styles.tickerControls}`}>
       <div className={styles.tickerButtons}>
+        <div className={styles.tickerButtons} hidden={collapsed}>
         <button type="button" className={styles.browseTicker} aria-label="Previous featured model" onClick={() => browse(active - 1)} disabled={manual && active === 0}>←</button>
         {!reducedMotion && <button type="button" className={styles.pause} aria-pressed={compact && !mobilePlaying ? false : paused} onClick={toggleMotion}>{motionLabel}</button>}
         <button type="button" className={styles.browseTicker} aria-label="Next featured model" onClick={() => browse(manual ? active + 1 : nearest() + 1)} disabled={manual && active === items.length - 1}>→</button>
+        </div>
+        <button type="button" className={styles.collapseTicker} aria-expanded={!collapsed} aria-controls="site-price-ticker" onClick={() => saveCollapsed(!collapsed)}>{collapsed ? 'Show price ticker' : 'Hide ticker'}</button>
       </div>
     </div>
-    <div ref={viewport} className={styles.tickerViewport} data-manual={manual} data-mobile-play={mobilePlaying} role="region" aria-label="Featured AI model rates in USD per million text tokens; horizontally scrollable" tabIndex={0}
+    <div id="site-price-ticker" hidden={collapsed} ref={viewport} className={styles.tickerViewport} data-manual={manual} data-mobile-play={mobilePlaying} role="region" aria-label="Featured AI model rates in USD per million text tokens; horizontally scrollable" tabIndex={0}
       onFocusCapture={onFocus} onBlurCapture={onBlur} onPointerDown={onPointerDown}
       onMouseEnter={() => { if (!compact) setHovered(true); }} onMouseLeave={() => setHovered(false)}
       onScroll={() => { if (manual) setActive(nearest()); }}>
