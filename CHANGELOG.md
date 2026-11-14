@@ -1,5 +1,17 @@
 # Changelog
 
+## Price Watch 1.1 — 2026-11-14
+
+- Added baseline model cost differences, annualized differences, budget headroom and low/expected/high demand scenarios.
+- Added up to eight separately priced request groups, local aggregated-usage CSV import and a downloadable template.
+- Added sourced suitability filters for context/output capacity and reviewed structured-output/input capabilities; unknown facts are excluded only when the corresponding requirement is enabled.
+- Added readable comparison PDF reports and versioned local JSON snapshots that preserve rate assumptions in clearly labeled historical mode.
+- Made workload sharing explicit and opt-in; editing no longer writes financial assumptions into the address bar.
+- Added an origin-checked, user-confirmed browser-tab handoff into TCO. Mixed-workload effective rates preserve the modeled token bill without putting usage data in URLs or server requests.
+- Unified pricing freshness decisions across estimates, ticker and source labels; separated context/output-capacity warnings and added actionable unavailable states.
+- Added pricing-page email feedback and moved source excerpts/hashes behind a secondary technical disclosure.
+- Reviewed structured output, text and image input for four OpenAI models against their individual official model pages. Other capability values remain unknown. Image charges are outside the text-token estimates.
+
 ## 0.4.0 — 2026-11-14
 
 - Integrated the existing Price Watch provider loader and billing-tier matcher with TCO model selection.

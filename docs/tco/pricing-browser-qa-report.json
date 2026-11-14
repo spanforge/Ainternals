@@ -1,8 +1,9 @@
 {
   "status": "PASS",
-  "checkedAt": "2026-11-14T01:44:02.817Z",
+  "checkedAt": "2026-11-14T03:03:39.926Z",
   "fixtureProvenance": "Real existing Price Watch endpoint, using fresh official provider snapshots; no fabricated rates",
   "catalogModels": 23,
+  "freshModels": 23,
   "model": "gpt-6.1-sol",
   "checks": [
     "model/billing handoff",
@@ -18,6 +19,5 @@
     "no assumptions sent to pricing or providers",
     "390px mobile without overflow",
     "no browser exceptions"
-  ],
-  "freshModels": 23
+  ]
 }

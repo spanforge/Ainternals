@@ -1,3 +1,4 @@
+import { priceStatus } from './freshness.ts';
 import { tickerModelIds } from '../../config/ticker-models.ts';
 import type { ModelPrice } from './normalize.ts';
 import { defaultWorkload } from './estimate.ts';
@@ -12,11 +13,7 @@ export function selectTickerModels(models: ModelPrice[]): ModelPrice[] {
   return selected.filter((model, index) => selected.findIndex(other => other.provider === model.provider) === index);
 }
 export function tickerDuration(width: number): number { return Math.max(1, width / TICKER_PIXELS_PER_SECOND); }
-export function tickerStatus(item: TickerItem, now: number): ModelPrice['sourceStatus'] {
-  if (item.validUntil && now >= Date.parse(item.validUntil)) return 'unavailable';
-  if (item.sourceStatus === 'unavailable' || item.fetchedAt === null || !Number.isFinite(Date.parse(item.fetchedAt))) return 'unavailable';
-  return item.sourceStatus === 'stale' || now - Date.parse(item.fetchedAt) >= 3600000 ? 'stale' : 'fresh';
-}
+export function tickerStatus(item: TickerItem, now: number): ModelPrice['sourceStatus'] { return priceStatus(item,now); }
 export function makeTickerItem(model: ModelPrice): TickerItem {
   const base = model.tiers.find(t => t.processing === 'standard' && defaultWorkload.input >= t.minInput && (t.maxInput === null || defaultWorkload.input <= t.maxInput) && (t.region === 'default' || t.region === defaultWorkload.region) && (t.period === 'any' || t.period === defaultWorkload.period));
   let qualifier = 'Standard · uncached';

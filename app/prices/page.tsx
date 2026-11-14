@@ -5,6 +5,7 @@ import { getModelPrices } from '@/lib/pricing/fetch-official';
 import ModelPriceTable from '@/components/ModelPriceTable';
 import RefreshPrices from '@/components/RefreshPrices';
 import { parseBoardState } from '@/lib/pricing/share';
+import {defaultPlanner,parsePlanner} from '@/lib/pricing/planner';
 import styles from '@/components/Prices.module.css';
 export const metadata: Metadata = {
   title: 'AI Model Price Watch | AInternals',
@@ -18,13 +19,18 @@ export default async function PricesPage({ searchParams }: { searchParams: Promi
   const params = new URLSearchParams();
   for (const [key, value] of Object.entries(await searchParams)) if (value !== undefined) params.set(key, Array.isArray(value) ? value[0] : value);
   // Server request time seeds client freshness checks without hydration drift.
-  // eslint-disable-next-line react-hooks/purity
   const requestTime = Date.now();
   const initialState = parseBoardState(params, data.models.map(m => m.modelId), Object.keys(providers));
+  let initialPlanner={...defaultPlanner,groups:[...defaultPlanner.groups]},initialPlannerError='';
+  if(params.get('baseline')&&data.models.some(m=>m.modelId===params.get('baseline')))initialPlanner.baseline=params.get('baseline')!;
+  if(params.has('plan')){
+    try{const raw=params.get('plan')!;if(raw.length>16000)throw new Error('Shared planner options are too large.');initialPlanner=parsePlanner(JSON.parse(raw),data.models.map(m=>m.modelId));}
+    catch{initialPlannerError='The shared planner options were invalid and were not applied. Review the current assumptions.';}
+  }
   const sourceControls = <>
     <div className={styles.statusBar}><span>USD / 1 million text tokens</span><span>{data.models.length} curated models · {Object.keys(providers).length} providers</span><span>Official sources · 1-hour cache</span></div>
     <RefreshPrices />
-    <p className={styles.sourceSummary}>{data.freshProviders} of {Object.keys(providers).length} official sources current · {data.issues.length ? `${data.issues.length} need attention` : 'All selected providers available'}</p>
+    <p className={styles.sourceSummary}>{data.freshProviders} of {Object.keys(providers).length} official sources fresh at page load · {data.issues.length ? `${data.issues.length} need attention` : 'All selected providers available'}</p>
     {data.status === 'stale' && <p role="status" className={styles.warning}>Data may be stale or unavailable for: {data.issues.join(', ')}. Each row shows its official source and last successful fetch.</p>}
   </>;
   return <div className={`container ${styles.page}`}>
@@ -32,10 +38,10 @@ export default async function PricesPage({ searchParams }: { searchParams: Promi
       <p className="eyebrow">The economics of intelligence / Price watch</p>
       <h1>AI Model <em>Price Watch.</em></h1>
       <p className={styles.subtitle}>Official API prices. Practical cost comparisons.</p>
-      <p className={styles.intro}>Calculate your token budget, shortlist current models, and share a comparison. No login.</p>
+      <p className={styles.intro}>Price Watch 1.1 · Compare your current model, price a realistic request mix, and plan against your budget. No login.</p>
     </header>
     {data.status === 'unavailable' && <section className={styles.empty}><h2>Pricing is temporarily unavailable.</h2><p>We could not retrieve usable pricing data. Use the official provider links below to check current rates.</p></section>}
-    <ModelPriceTable models={data.models} initialState={initialState} initialNow={requestTime} sourceControls={sourceControls} />
+    <ModelPriceTable models={data.models} initialState={initialState} initialNow={requestTime} sourceControls={sourceControls} initialPlanner={initialPlanner} initialPlannerError={initialPlannerError}/>
     <section className={styles.method} aria-labelledby="source-title">
       <div><p className="eyebrow">Source & freshness</p><h2 id="source-title">Direct from the providers.</h2><p>Rates are fetched from each provider’s official pricing documentation. Each model links to the document used and records its successful fetch time.</p>
       {data.fetchedAt && <p>Oldest successful provider fetch: <time dateTime={data.fetchedAt}>{new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'UTC' }).format(new Date(data.fetchedAt))} UTC</time></p>}

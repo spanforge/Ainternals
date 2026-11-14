@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "checkedAt": "2026-11-14T03:00:30.013Z",
+  "checks": [
+    "editing does not change URL",
+    "baseline differences",
+    "mixed group pricing",
+    "verified capability and capacity filters",
+    "sharing excludes workload by default",
+    "explicit opt-in shares full assumptions",
+    "comparison JSON snapshot round-trip",
+    "historical mode labeling",
+    "printable assumptions and PDF",
+    "local CSV import and malformed-file preservation",
+    "390px mobile without overflow",
+    "same-origin confirmed workload transfer into TCO",
+    "no financial assumption network requests",
+    "no browser exceptions"
+  ]
+}

@@ -1,0 +1,17 @@
+import type {ModelPrice} from '@/lib/pricing/normalize';
+import {formatPrice} from '@/lib/pricing/normalize';
+import type {Workload} from '@/lib/pricing/estimate';
+import {baselineDifference,capacityBudget,estimateWorkload,requestGroups,type PlannerState} from '@/lib/pricing/planner';
+import styles from './PricingPlanner.module.css';
+
+export default function PricingComparisonReport({models,workload,plan,now,historical}:{models:ModelPrice[];workload:Workload;plan:PlannerState;now:number;historical:boolean}){
+  const baselineModel=models.find(m=>m.modelId===plan.baseline);
+  const baseline=baselineModel?estimateWorkload(baselineModel,workload,plan,now).monthly:null;
+  return <section className={styles.printReport} aria-label="Printable pricing comparison">
+    <h1>AInternals · AI model cost comparison</h1><p>{historical?'Imported historical snapshot — not current pricing; file contents are not independently verified':'Current comparison using the displayed fetched pricing snapshots'} · Comparison time: {new Date(now).toISOString()}</p><p>USD · text tokens · {workload.processing} · Alibaba: {workload.region} · DeepSeek: {workload.period} · Kimi writes: {workload.kimiTtl}</p>
+    <h2>Workload assumptions</h2><table><thead><tr><th>Request group</th><th>Input / request</th><th>Output / request</th><th>Requests / month</th></tr></thead><tbody>{requestGroups(workload,plan).map((g,i)=><tr key={i}><th>{g.name}</th><td>{g.input}</td><td>{g.output}</td><td>{g.requests}</td></tr>)}</tbody></table><p>Budget: {plan.budget===null?'not set':formatPrice(plan.budget)} / month. Low / expected / high volume: {plan.lowPercent}% / 100% / {plan.highPercent}%. Baseline: {baselineModel?.displayName??'not selected'}.</p>
+    <p>Requirements: minimum context {plan.minContext}; minimum output {plan.minOutput}; input support {plan.inputType}; verified structured output {plan.structuredOnly?'required':'not required'}.</p>
+    <h2>Compared models</h2>{models.map(m=>{const e=estimateWorkload(m,workload,plan,now),diff=baselineDifference(e.monthly,baseline),budget=capacityBudget(plan.budget,e);return <article key={m.modelId}><h3>{m.provider} · {m.displayName}</h3><p>Monthly: {e.monthly===null?'Not estimated':formatPrice(e.monthly)}. Low / high: {formatPrice(estimateWorkload(m,workload,plan,now,plan.lowPercent).monthly)} / {formatPrice(estimateWorkload(m,workload,plan,now,plan.highPercent).monthly)}.</p>{diff&&<p>Baseline minus this model: {formatPrice(diff.monthly)} / month; {formatPrice(diff.annual)} annualized; {diff.percent===null?'percentage not meaningful against a zero baseline':`${diff.percent.toFixed(2)}%`}. Positive means lower modeled cost; negative means higher.</p>}{budget&&<p>Budget headroom: {formatPrice(budget.headroom)}. {budget.fits?'Within':'Over'} budget.</p>}<p>Tier: {e.reason??e.tier?.label??'No applicable tier'}. Source fetched: {m.fetchedAt??'unavailable'}. Official source: {m.sourceUrl}</p>{e.notes.map(note=><p key={note}>{note}</p>)}</article>;})}
+    <h2>Scope and limitations</h2><p>Token-cost estimates do not establish model quality, ROI or guaranteed savings. Taxes, tools, retries, cache-hit savings, regional uplifts and subscriptions are excluded. Required Kimi cache writes are included. Request-size groups are priced separately. Capability information may be unknown. Annualized differences assume unchanged monthly usage and rates.</p><p>Questions or discrepancies: sriram@sriramadvisory.com. Avoid sharing sensitive assumptions. Report format: Price Watch 1.1.</p>
+  </section>;
+}

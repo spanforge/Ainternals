@@ -70,6 +70,8 @@ See [the initial feedback release record](docs/tco/release-0.4.0.md) for verific
 
 ## AI Model Price Watch
 
+Price Watch 1.1 adds baseline differences, multi-size request mixes, budget and demand planning, independently sourced suitability facts, local usage CSV import, portable JSON comparison snapshots and readable PDF reports. Workload sharing is explicit and optional; editing does not populate the address bar. A user-confirmed browser-local handoff carries a workload and effective rate snapshot into TCO without transmitting financial assumptions. See [the local planner documentation](docs/pricing-planner-1.1.md).
+
 `/prices` compares a curated set of 23 current API models across 10 providers with provider filtering, model search, and sortable input/output rates. The homepage includes a pausable ticker with a reduced-motion scrolling fallback. Official pricing links remain available when data cannot be fetched.
 
 Prices are fetched directly from the ten providers' official documents. `lib/pricing/official-sources.ts` lists the exact URLs; `official-parsers.ts` contains provider-specific adapters. No aggregation feed or inference API key is used. Edit API identifiers and labels in `config/featured-models.ts`; run `npm run verify:pricing` to fetch all official sources and require validated rates for all 23 selected models.

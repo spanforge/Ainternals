@@ -35,6 +35,26 @@ export default function Calculator() {
   const dirty = Boolean(pricingBinding) || JSON.stringify(inputs) !== JSON.stringify(defaults) || Object.keys(drafts).length > 0;
   const inputPending = Object.values(errors).some(Boolean);
   const pending = inputPending || pricingBlocked;
+  useEffect(()=>{
+    if(window.location.hash!=='#receive-workload'||!window.opener)return;
+    const opener=window.opener,origin=window.location.origin;
+    let received=false;
+    const receive=(event:MessageEvent)=>{
+      if(received||event.origin!==origin||event.source!==opener||event.data?.type!=='ainternals-tco-workload'||typeof event.data.scenario!=='string')return;
+      received=true;
+      try{
+        const next=importScenario(event.data.scenario);
+        if(!window.confirm('Import this Price Watch workload and rate snapshot? One request maps to one attempted task. Other operating assumptions remain illustrative defaults. Mixed workloads use adjusted effective rates to preserve the token bill.'))return;
+        setInputs(next);setPricingBinding(null);setDrafts({});setErrors({});
+        setNotice('Price Watch workload received locally. The token bill is preserved in a manual rate snapshot; review the other operating defaults before relying on the TCO estimate. Applying a current model replaces these effective rates.');
+        opener.postMessage({type:'ainternals-tco-received'},origin);
+        window.history.replaceState(null,'',window.location.pathname+window.location.search);
+      }catch(e){setNotice(readableError(e));}
+    };
+    window.addEventListener('message',receive);
+    opener.postMessage({type:'ainternals-tco-ready'},origin);
+    return ()=>window.removeEventListener('message',receive);
+  },[]);
   const money = (v:number|null,unit=false) => v === null ? 'n/a' : new Intl.NumberFormat('en-US',{style:'currency',currency:inputs.currency,minimumFractionDigits:unit?4:2,maximumFractionDigits:unit?4:2}).format(v);
   const count = (v:number) => new Intl.NumberFormat('en-US',{maximumFractionDigits:2}).format(v);
   const resultNotes = [

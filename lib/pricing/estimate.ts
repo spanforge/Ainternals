@@ -1,4 +1,5 @@
 import type { ModelPrice } from './normalize.ts';
+import { priceStatus } from './freshness.ts';
 import type { BillingTier } from './official-parsers.ts';
 export type Workload = { input: number; output: number; requests: number; processing: 'standard' | 'batch'; region: 'singapore' | 'us' | 'eu'; period: 'peak' | 'off-peak'; kimiTtl: '5m' | '1h' };
 export const defaultWorkload: Workload = { input: 4000, output: 1000, requests: 10000, processing: 'standard', region: 'singapore', period: 'peak', kimiTtl: '5m' };
@@ -14,7 +15,7 @@ export function estimateModel(model: ModelPrice, w: Workload, now = Date.now()):
   const unavailable = (reason: string): Estimate => ({ monthly: null, perRequest: null, inputCost: null, outputCost: null, writeCost: null, tier: null, reason, notes: [] });
   const error = workloadError(w);
   if (error) return unavailable(error);
-  if (model.sourceStatus !== 'fresh' || model.fetchedAt && now - Date.parse(model.fetchedAt) >= 3600000) return unavailable('Fresh official pricing is required. Refresh prices to estimate.');
+  if (priceStatus(model,now) !== 'fresh') return unavailable('Fresh official pricing is required. Refresh prices to estimate.');
   if (model.validUntil && now >= Date.parse(model.validUntil)) return unavailable('Published pricing has expired. Refresh prices.');
   if (model.contextWindow && w.input + w.output > model.contextWindow) return unavailable(`Input plus output exceeds the reviewed ${model.contextWindow.toLocaleString('en-US')}-token context window.`);
   if (model.maxOutput && w.output > model.maxOutput) return unavailable(`Output exceeds the reviewed ${model.maxOutput.toLocaleString('en-US')}-token limit.`);
@@ -32,7 +33,8 @@ export function estimateModel(model: ModelPrice, w: Workload, now = Date.now()):
   const monthly = inputCost + outputCost + writeCost;
   if (![inputCost, outputCost, writeCost, monthly].every(Number.isFinite)) return unavailable('This workload exceeds the supported calculation range.');
   const notes = ['Uncached text input and billed output tokens. Taxes, tools, retries and subscription plans excluded.'];
-  if (!model.contextWindow) notes.push('Model context/output capacity has not been verified here; confirm request limits with the provider.');
+  if (!model.contextWindow) notes.push('Context capacity is unknown here; confirm the total request limit with the provider.');
+  if (!model.maxOutput) notes.push('Output capacity is unknown here; confirm the output limit with the provider.');
   if (model.provider === 'Moonshot AI') notes.push(`Includes ${w.kimiTtl} cache writes for all uncached input tokens; no cache-hit savings assumed.`);
   if (model.provider === 'DeepSeek') notes.push(`${w.period} scenario for every request; scheduling and Chinese holiday eligibility are your responsibility.`);
   return { monthly, perRequest: w.requests ? monthly / w.requests : (w.input * (tier.input + (model.provider === 'Moonshot AI' ? (w.kimiTtl === '5m' ? tier.cacheWrite5m! : tier.cacheWrite1h!) : 0)) + w.output * tier.output) / 1e6, inputCost, outputCost, writeCost, tier, reason: null, notes };
