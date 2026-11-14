@@ -9,6 +9,7 @@ export default function Nav() {
           AInternals<span>.</span>
         </Link>
         <nav aria-label="Main navigation">
+          <Link href="/tools/ai-tco-calculator">TCO calculator</Link>
           <Link href="/prices">Price watch</Link>
           <Link href="/#about">About</Link>
           <Link href="/#where-we-are">Where we are</Link>

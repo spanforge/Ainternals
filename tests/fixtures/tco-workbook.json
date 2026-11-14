@@ -1,0 +1,1235 @@
+{
+  "modelVersion": "workbook-v1.0",
+  "sha256": "eb287d7f01acdb1ea02855280ae6657c2906f6ee964b811587566a03e97ecf3c",
+  "sheets": {
+    "Inputs": {
+      "A1": {
+        "value": "AINTERNALS | AI TOTAL COST OF OWNERSHIP V1.0"
+      },
+      "A2": {
+        "value": "Blue cells are editable · All defaults are hypothetical · Three-year horizon fixed"
+      },
+      "A4": {
+        "value": "Assumption"
+      },
+      "B4": {
+        "value": "Value"
+      },
+      "C4": {
+        "value": "Explanation / interpretation"
+      },
+      "A5": {
+        "value": "Currency"
+      },
+      "B5": {
+        "value": "USD"
+      },
+      "C5": {
+        "value": "Select display currency; no FX conversion"
+      },
+      "A6": {
+        "value": "Annual volume growth"
+      },
+      "B6": {
+        "value": 0.2
+      },
+      "C6": {
+        "value": "Growth in attempted task volume"
+      },
+      "A7": {
+        "value": "Annual operating cost inflation"
+      },
+      "B7": {
+        "value": 0.05
+      },
+      "C7": {
+        "value": "Inflates labor, rework and fixed monthly costs; token rates change only via B36"
+      },
+      "A8": {
+        "value": "Monthly attempted AI tasks"
+      },
+      "B8": {
+        "value": 10000
+      },
+      "C8": {
+        "value": "Year 1 attempted workload"
+      },
+      "A9": {
+        "value": "First-pass completion rate"
+      },
+      "B9": {
+        "value": 0.9
+      },
+      "C9": {
+        "value": "Share of attempts successful before remediation"
+      },
+      "A10": {
+        "value": "Failed-task recovery rate"
+      },
+      "B10": {
+        "value": 0.8
+      },
+      "C10": {
+        "value": "Share of initially failed tasks successfully recovered through rework"
+      },
+      "A11": {
+        "value": "Input tokens per attempt"
+      },
+      "B11": {
+        "value": 2000
+      },
+      "C11": {
+        "value": "Average input tokens billed"
+      },
+      "A12": {
+        "value": "Output tokens per attempt"
+      },
+      "B12": {
+        "value": 500
+      },
+      "C12": {
+        "value": "Average output tokens billed"
+      },
+      "A13": {
+        "value": "Input price per 1M tokens"
+      },
+      "B13": {
+        "value": 2
+      },
+      "C13": {
+        "value": "Illustrative $2/1M input; NOT tied to a named model or verification date. Replace with provider rate."
+      },
+      "A14": {
+        "value": "Output price per 1M tokens"
+      },
+      "B14": {
+        "value": 10
+      },
+      "C14": {
+        "value": "Illustrative $10/1M output; NOT tied to a named model or verification date. Replace with provider rate."
+      },
+      "A15": {
+        "value": "Other API/tools cost per attempt"
+      },
+      "B15": {
+        "value": 0.01
+      },
+      "C15": {
+        "value": "Other variable API and tool charges"
+      },
+      "A16": {
+        "value": "Cloud infrastructure per month"
+      },
+      "B16": {
+        "value": 500
+      },
+      "C16": {
+        "value": "Base monthly cost at Year 1 volume"
+      },
+      "A17": {
+        "value": "Cloud scales with volume?"
+      },
+      "B17": {
+        "value": "Yes"
+      },
+      "C17": {
+        "value": "Yes: multiply by volume factor; No: inflation only"
+      },
+      "A18": {
+        "value": "Monitoring & security per month"
+      },
+      "B18": {
+        "value": 200
+      },
+      "C18": {
+        "value": "Base monthly cost"
+      },
+      "A19": {
+        "value": "Monitoring scales with volume?"
+      },
+      "B19": {
+        "value": "No"
+      },
+      "C19": {
+        "value": "Yes: multiply by volume factor; No: inflation only"
+      },
+      "A20": {
+        "value": "Software & licenses per month"
+      },
+      "B20": {
+        "value": 300
+      },
+      "C20": {
+        "value": "Base monthly cost"
+      },
+      "A21": {
+        "value": "Licenses scale with volume?"
+      },
+      "B21": {
+        "value": "No"
+      },
+      "C21": {
+        "value": "Yes: multiply by volume factor; No: inflation only"
+      },
+      "A22": {
+        "value": "Human review minutes per attempt"
+      },
+      "B22": {
+        "value": 1
+      },
+      "C22": {
+        "value": "Review applies to every attempted task"
+      },
+      "A23": {
+        "value": "Fully loaded reviewer hourly cost"
+      },
+      "B23": {
+        "value": 30
+      },
+      "C23": {
+        "value": "Labor cost including overhead"
+      },
+      "A24": {
+        "value": "Rework cost per initially failed task"
+      },
+      "B24": {
+        "value": 1.5
+      },
+      "C24": {
+        "value": "Cost incurred per failed attempt; recovery controlled separately"
+      },
+      "A25": {
+        "value": "Support & maintenance per month"
+      },
+      "B25": {
+        "value": 1000
+      },
+      "C25": {
+        "value": "Base monthly operating support"
+      },
+      "A26": {
+        "value": "Support scales with volume?"
+      },
+      "B26": {
+        "value": "No"
+      },
+      "C26": {
+        "value": "Yes: multiply by volume factor; No: inflation only"
+      },
+      "A27": {
+        "value": "One-time implementation"
+      },
+      "B27": {
+        "value": 15000
+      },
+      "C27": {
+        "value": "Paid at project start, t=0"
+      },
+      "A28": {
+        "value": "One-time data preparation"
+      },
+      "B28": {
+        "value": 5000
+      },
+      "C28": {
+        "value": "Paid at t=0"
+      },
+      "A29": {
+        "value": "One-time training & change"
+      },
+      "B29": {
+        "value": 3000
+      },
+      "C29": {
+        "value": "Paid at t=0"
+      },
+      "A30": {
+        "value": "One-time security & compliance"
+      },
+      "B30": {
+        "value": 2000
+      },
+      "C30": {
+        "value": "Paid at t=0"
+      },
+      "A31": {
+        "value": "Operating contingency rate"
+      },
+      "B31": {
+        "value": 0.1
+      },
+      "C31": {
+        "value": "Applied to recurring operating costs"
+      },
+      "A32": {
+        "value": "Annual discount rate"
+      },
+      "B32": {
+        "value": 0.1
+      },
+      "C32": {
+        "value": "Operating costs discounted at each year-end"
+      },
+      "A33": {
+        "value": "Human-only minutes per task"
+      },
+      "B33": {
+        "value": 0
+      },
+      "C33": {
+        "value": "Optional baseline; set >0 only after validating comparable manual task time"
+      },
+      "A34": {
+        "value": "Human-only hourly cost"
+      },
+      "B34": {
+        "value": 30
+      },
+      "C34": {
+        "value": "Optional baseline fully loaded cost"
+      },
+      "A35": {
+        "value": "Human-only overhead per task"
+      },
+      "B35": {
+        "value": 0
+      },
+      "C35": {
+        "value": "Optional baseline other direct cost per task"
+      },
+      "A36": {
+        "value": "Annual token price change"
+      },
+      "B36": {
+        "value": 0
+      },
+      "C36": {
+        "value": "Optional yearly change in input/output token prices; 0% default; -20% is an illustrative scenario, not a forecast"
+      },
+      "A37": {
+        "value": "Price source / verified on"
+      },
+      "B37": {
+        "value": "Illustrative / not verified"
+      },
+      "C37": {
+        "value": "Replace with model, official provider pricing URL and verification date when using real rates"
+      },
+      "A38": {
+        "value": "Baseline interpretation"
+      },
+      "C38": {
+        "value": "Human-only comparison is OFF by default; enabling it does not establish equivalent outcome quality."
+      },
+      "A39": {
+        "value": "Rework cost scope"
+      },
+      "C39": {
+        "value": "Rework cost is assumed to cover extra AI usage, review and other remediation; avoid double counting."
+      }
+    },
+    "3-Year TCO": {
+      "A1": {
+        "value": "AINTERNALS | THREE-YEAR TCO MODEL"
+      },
+      "A2": {
+        "value": "All recurring costs are incurred at year-end for PV; upfront investment at t=0"
+      },
+      "A4": {
+        "value": "Metric"
+      },
+      "B4": {
+        "value": "Year 1"
+      },
+      "C4": {
+        "value": "Year 2"
+      },
+      "D4": {
+        "value": "Year 3"
+      },
+      "F4": {
+        "value": "Cost component"
+      },
+      "G4": {
+        "value": "Year 1"
+      },
+      "H4": {
+        "value": "Year 2"
+      },
+      "I4": {
+        "value": "Year 3"
+      },
+      "A5": {
+        "value": "Attempted tasks"
+      },
+      "B5": {
+        "formula": "Inputs!$B$8*12*(1+Inputs!$B$6)^0"
+      },
+      "C5": {
+        "formula": "Inputs!$B$8*12*(1+Inputs!$B$6)^1"
+      },
+      "D5": {
+        "formula": "Inputs!$B$8*12*(1+Inputs!$B$6)^2"
+      },
+      "F5": {
+        "value": "API and tools"
+      },
+      "G5": {
+        "formula": "SUM(B11:B13)"
+      },
+      "H5": {
+        "formula": "SUM(C11:C13)"
+      },
+      "I5": {
+        "formula": "SUM(D11:D13)"
+      },
+      "A6": {
+        "value": "First-pass successes"
+      },
+      "B6": {
+        "formula": "B5*Inputs!$B$9"
+      },
+      "C6": {
+        "formula": "C5*Inputs!$B$9"
+      },
+      "D6": {
+        "formula": "D5*Inputs!$B$9"
+      },
+      "F6": {
+        "value": "Cloud infrastructure"
+      },
+      "G6": {
+        "formula": "B14"
+      },
+      "H6": {
+        "formula": "C14"
+      },
+      "I6": {
+        "formula": "D14"
+      },
+      "A7": {
+        "value": "Recovered tasks"
+      },
+      "B7": {
+        "formula": "(B5-B6)*Inputs!$B$10"
+      },
+      "C7": {
+        "formula": "(C5-C6)*Inputs!$B$10"
+      },
+      "D7": {
+        "formula": "(D5-D6)*Inputs!$B$10"
+      },
+      "F7": {
+        "value": "Monitoring & security"
+      },
+      "G7": {
+        "formula": "B15"
+      },
+      "H7": {
+        "formula": "C15"
+      },
+      "I7": {
+        "formula": "D15"
+      },
+      "A8": {
+        "value": "Total successful tasks"
+      },
+      "B8": {
+        "formula": "SUM(B6:B7)"
+      },
+      "C8": {
+        "formula": "SUM(C6:C7)"
+      },
+      "D8": {
+        "formula": "SUM(D6:D7)"
+      },
+      "F8": {
+        "value": "Software"
+      },
+      "G8": {
+        "formula": "B16"
+      },
+      "H8": {
+        "formula": "C16"
+      },
+      "I8": {
+        "formula": "D16"
+      },
+      "A9": {
+        "value": "Unresolved failures"
+      },
+      "B9": {
+        "formula": "B5-B8"
+      },
+      "C9": {
+        "formula": "C5-C8"
+      },
+      "D9": {
+        "formula": "D5-D8"
+      },
+      "F9": {
+        "value": "Human review"
+      },
+      "G9": {
+        "formula": "B17"
+      },
+      "H9": {
+        "formula": "C17"
+      },
+      "I9": {
+        "formula": "D17"
+      },
+      "F10": {
+        "value": "Rework"
+      },
+      "G10": {
+        "formula": "B18"
+      },
+      "H10": {
+        "formula": "C18"
+      },
+      "I10": {
+        "formula": "D18"
+      },
+      "A11": {
+        "value": "Input API cost"
+      },
+      "B11": {
+        "formula": "B5*Inputs!$B$11*Inputs!$B$13/1000000*(1+Inputs!$B$36)^0"
+      },
+      "C11": {
+        "formula": "C5*Inputs!$B$11*Inputs!$B$13/1000000*(1+Inputs!$B$36)^1"
+      },
+      "D11": {
+        "formula": "D5*Inputs!$B$11*Inputs!$B$13/1000000*(1+Inputs!$B$36)^2"
+      },
+      "F11": {
+        "value": "Support"
+      },
+      "G11": {
+        "formula": "B19"
+      },
+      "H11": {
+        "formula": "C19"
+      },
+      "I11": {
+        "formula": "D19"
+      },
+      "A12": {
+        "value": "Output API cost"
+      },
+      "B12": {
+        "formula": "B5*Inputs!$B$12*Inputs!$B$14/1000000*(1+Inputs!$B$36)^0"
+      },
+      "C12": {
+        "formula": "C5*Inputs!$B$12*Inputs!$B$14/1000000*(1+Inputs!$B$36)^1"
+      },
+      "D12": {
+        "formula": "D5*Inputs!$B$12*Inputs!$B$14/1000000*(1+Inputs!$B$36)^2"
+      },
+      "F12": {
+        "value": "Contingency"
+      },
+      "G12": {
+        "formula": "B21"
+      },
+      "H12": {
+        "formula": "C21"
+      },
+      "I12": {
+        "formula": "D21"
+      },
+      "A13": {
+        "value": "Other API & tools"
+      },
+      "B13": {
+        "formula": "B5*Inputs!$B$15"
+      },
+      "C13": {
+        "formula": "C5*Inputs!$B$15"
+      },
+      "D13": {
+        "formula": "D5*Inputs!$B$15"
+      },
+      "A14": {
+        "value": "Cloud infrastructure"
+      },
+      "B14": {
+        "formula": "Inputs!$B$16*12*(1+Inputs!$B$7)^0*IF(Inputs!$B$17=\"Yes\",(1+Inputs!$B$6)^0,1)"
+      },
+      "C14": {
+        "formula": "Inputs!$B$16*12*(1+Inputs!$B$7)^1*IF(Inputs!$B$17=\"Yes\",(1+Inputs!$B$6)^1,1)"
+      },
+      "D14": {
+        "formula": "Inputs!$B$16*12*(1+Inputs!$B$7)^2*IF(Inputs!$B$17=\"Yes\",(1+Inputs!$B$6)^2,1)"
+      },
+      "A15": {
+        "value": "Monitoring & security"
+      },
+      "B15": {
+        "formula": "Inputs!$B$18*12*(1+Inputs!$B$7)^0*IF(Inputs!$B$19=\"Yes\",(1+Inputs!$B$6)^0,1)"
+      },
+      "C15": {
+        "formula": "Inputs!$B$18*12*(1+Inputs!$B$7)^1*IF(Inputs!$B$19=\"Yes\",(1+Inputs!$B$6)^1,1)"
+      },
+      "D15": {
+        "formula": "Inputs!$B$18*12*(1+Inputs!$B$7)^2*IF(Inputs!$B$19=\"Yes\",(1+Inputs!$B$6)^2,1)"
+      },
+      "A16": {
+        "value": "Software & licenses"
+      },
+      "B16": {
+        "formula": "Inputs!$B$20*12*(1+Inputs!$B$7)^0*IF(Inputs!$B$21=\"Yes\",(1+Inputs!$B$6)^0,1)"
+      },
+      "C16": {
+        "formula": "Inputs!$B$20*12*(1+Inputs!$B$7)^1*IF(Inputs!$B$21=\"Yes\",(1+Inputs!$B$6)^1,1)"
+      },
+      "D16": {
+        "formula": "Inputs!$B$20*12*(1+Inputs!$B$7)^2*IF(Inputs!$B$21=\"Yes\",(1+Inputs!$B$6)^2,1)"
+      },
+      "A17": {
+        "value": "Human review"
+      },
+      "B17": {
+        "formula": "B5*Inputs!$B$22/60*Inputs!$B$23*(1+Inputs!$B$7)^0"
+      },
+      "C17": {
+        "formula": "C5*Inputs!$B$22/60*Inputs!$B$23*(1+Inputs!$B$7)^1"
+      },
+      "D17": {
+        "formula": "D5*Inputs!$B$22/60*Inputs!$B$23*(1+Inputs!$B$7)^2"
+      },
+      "A18": {
+        "value": "Failed-task rework"
+      },
+      "B18": {
+        "formula": "(B5-B6)*Inputs!$B$24*(1+Inputs!$B$7)^0"
+      },
+      "C18": {
+        "formula": "(C5-C6)*Inputs!$B$24*(1+Inputs!$B$7)^1"
+      },
+      "D18": {
+        "formula": "(D5-D6)*Inputs!$B$24*(1+Inputs!$B$7)^2"
+      },
+      "A19": {
+        "value": "Support & maintenance"
+      },
+      "B19": {
+        "formula": "Inputs!$B$25*12*(1+Inputs!$B$7)^0*IF(Inputs!$B$26=\"Yes\",(1+Inputs!$B$6)^0,1)"
+      },
+      "C19": {
+        "formula": "Inputs!$B$25*12*(1+Inputs!$B$7)^1*IF(Inputs!$B$26=\"Yes\",(1+Inputs!$B$6)^1,1)"
+      },
+      "D19": {
+        "formula": "Inputs!$B$25*12*(1+Inputs!$B$7)^2*IF(Inputs!$B$26=\"Yes\",(1+Inputs!$B$6)^2,1)"
+      },
+      "A20": {
+        "value": "Recurring subtotal"
+      },
+      "B20": {
+        "formula": "SUM(B11:B19)"
+      },
+      "C20": {
+        "formula": "SUM(C11:C19)"
+      },
+      "D20": {
+        "formula": "SUM(D11:D19)"
+      },
+      "A21": {
+        "value": "Operating contingency"
+      },
+      "B21": {
+        "formula": "B20*Inputs!$B$31"
+      },
+      "C21": {
+        "formula": "C20*Inputs!$B$31"
+      },
+      "D21": {
+        "formula": "D20*Inputs!$B$31"
+      },
+      "A22": {
+        "value": "Annual operating TCO"
+      },
+      "B22": {
+        "formula": "SUM(B20:B21)"
+      },
+      "C22": {
+        "formula": "SUM(C20:C21)"
+      },
+      "D22": {
+        "formula": "SUM(D20:D21)"
+      },
+      "A24": {
+        "value": "One-time implementation"
+      },
+      "B24": {
+        "formula": "Inputs!$B$27"
+      },
+      "C24": {
+        "formula": "0"
+      },
+      "D24": {
+        "formula": "0"
+      },
+      "A25": {
+        "value": "One-time data preparation"
+      },
+      "B25": {
+        "formula": "Inputs!$B$28"
+      },
+      "C25": {
+        "formula": "0"
+      },
+      "D25": {
+        "formula": "0"
+      },
+      "A26": {
+        "value": "One-time training"
+      },
+      "B26": {
+        "formula": "Inputs!$B$29"
+      },
+      "C26": {
+        "formula": "0"
+      },
+      "D26": {
+        "formula": "0"
+      },
+      "A27": {
+        "value": "One-time compliance"
+      },
+      "B27": {
+        "formula": "Inputs!$B$30"
+      },
+      "C27": {
+        "formula": "0"
+      },
+      "D27": {
+        "formula": "0"
+      },
+      "A28": {
+        "value": "One-time subtotal"
+      },
+      "B28": {
+        "formula": "SUM(B24:B27)"
+      },
+      "C28": {
+        "formula": "SUM(C24:C27)"
+      },
+      "D28": {
+        "formula": "SUM(D24:D27)"
+      },
+      "A29": {
+        "value": "Total annual TCO"
+      },
+      "B29": {
+        "formula": "SUM(B22,B28)"
+      },
+      "C29": {
+        "formula": "SUM(C22,C28)"
+      },
+      "D29": {
+        "formula": "SUM(D22,D28)"
+      },
+      "A30": {
+        "value": "Cumulative TCO"
+      },
+      "B30": {
+        "formula": "B29"
+      },
+      "C30": {
+        "formula": "B30+C29"
+      },
+      "D30": {
+        "formula": "C30+D29"
+      },
+      "A32": {
+        "value": "Cost / attempted task"
+      },
+      "B32": {
+        "formula": "IFERROR(B29/B5,0)"
+      },
+      "C32": {
+        "formula": "IFERROR(C29/C5,0)"
+      },
+      "D32": {
+        "formula": "IFERROR(D29/D5,0)"
+      },
+      "A33": {
+        "value": "Cost / successful task incl upfront"
+      },
+      "B33": {
+        "formula": "IFERROR(B29/B8,0)"
+      },
+      "C33": {
+        "formula": "IFERROR(C29/C8,0)"
+      },
+      "D33": {
+        "formula": "IFERROR(D29/D8,0)"
+      },
+      "A34": {
+        "value": "Operating cost / successful task"
+      },
+      "B34": {
+        "formula": "IFERROR(B22/B8,0)"
+      },
+      "C34": {
+        "formula": "IFERROR(C22/C8,0)"
+      },
+      "D34": {
+        "formula": "IFERROR(D22/D8,0)"
+      },
+      "A35": {
+        "value": "Human-only baseline cost"
+      },
+      "B35": {
+        "formula": "IF(Inputs!$B$33>0,B5*(Inputs!$B$33/60*Inputs!$B$34*(1+Inputs!$B$7)^0+Inputs!$B$35*(1+Inputs!$B$7)^0),0)"
+      },
+      "C35": {
+        "formula": "IF(Inputs!$B$33>0,C5*(Inputs!$B$33/60*Inputs!$B$34*(1+Inputs!$B$7)^1+Inputs!$B$35*(1+Inputs!$B$7)^1),0)"
+      },
+      "D35": {
+        "formula": "IF(Inputs!$B$33>0,D5*(Inputs!$B$33/60*Inputs!$B$34*(1+Inputs!$B$7)^2+Inputs!$B$35*(1+Inputs!$B$7)^2),0)"
+      },
+      "A36": {
+        "value": "Net cost advantage vs human-only"
+      },
+      "B36": {
+        "formula": "IF(Inputs!$B$33>0,B35-B29,\"\")"
+      },
+      "C36": {
+        "formula": "IF(Inputs!$B$33>0,C35-C29,\"\")"
+      },
+      "D36": {
+        "formula": "IF(Inputs!$B$33>0,D35-D29,\"\")"
+      },
+      "A37": {
+        "value": "PV operating costs"
+      },
+      "B37": {
+        "formula": "B22/(1+Inputs!$B$32)^1"
+      },
+      "C37": {
+        "formula": "C22/(1+Inputs!$B$32)^2"
+      },
+      "D37": {
+        "formula": "D22/(1+Inputs!$B$32)^3"
+      },
+      "A38": {
+        "value": "PV cumulative incl t=0"
+      },
+      "B38": {
+        "formula": "SUM($B$28,$B$37:B37)"
+      },
+      "C38": {
+        "formula": "SUM($B$28,$B$37:C37)"
+      },
+      "D38": {
+        "formula": "SUM($B$28,$B$37:D37)"
+      },
+      "A39": {
+        "value": "PV human-only baseline"
+      },
+      "B39": {
+        "formula": "IF(Inputs!$B$33>0,B35/(1+Inputs!$B$32)^1,0)"
+      },
+      "C39": {
+        "formula": "IF(Inputs!$B$33>0,C35/(1+Inputs!$B$32)^2,0)"
+      },
+      "D39": {
+        "formula": "IF(Inputs!$B$33>0,D35/(1+Inputs!$B$32)^3,0)"
+      },
+      "A40": {
+        "value": "PV cost advantage vs AI"
+      },
+      "B40": {
+        "formula": "IF(Inputs!$B$33>0,B39-B37-$B$28,\"\")"
+      },
+      "C40": {
+        "formula": "IF(Inputs!$B$33>0,C39-C37,\"\")"
+      },
+      "D40": {
+        "formula": "IF(Inputs!$B$33>0,D39-D37,\"\")"
+      }
+    },
+    "Dashboard": {
+      "A1": {
+        "value": "AINTERNALS | AI TCO DECISION DASHBOARD V1.0"
+      },
+      "A2": {
+        "value": "Illustrative economics · edit blue assumptions on Inputs"
+      },
+      "A4": {
+        "value": "3-year TCO"
+      },
+      "B4": {
+        "formula": "SUM('3-Year TCO'!B29:D29)"
+      },
+      "A5": {
+        "value": "3-year successful tasks"
+      },
+      "B5": {
+        "formula": "SUM('3-Year TCO'!B8:D8)"
+      },
+      "A6": {
+        "value": "Blended cost / successful task"
+      },
+      "B6": {
+        "formula": "IFERROR(B4/B5,0)"
+      },
+      "A7": {
+        "value": "Year 1 operating cost"
+      },
+      "B7": {
+        "formula": "'3-Year TCO'!B22"
+      },
+      "A8": {
+        "value": "Upfront investment"
+      },
+      "B8": {
+        "formula": "'3-Year TCO'!B28"
+      },
+      "A9": {
+        "value": "Present value (upfront at t=0)"
+      },
+      "B9": {
+        "formula": "'3-Year TCO'!D38"
+      },
+      "A10": {
+        "value": "3-year human-only baseline"
+      },
+      "B10": {
+        "formula": "IF(Inputs!B33>0,SUM('3-Year TCO'!B35:D35),\"n/a\")"
+      },
+      "A11": {
+        "value": "3-year net advantage (optional)"
+      },
+      "B11": {
+        "formula": "IF(Inputs!B33>0,SUM('3-Year TCO'!B35:D35)-B4,\"n/a\")"
+      },
+      "A12": {
+        "value": "Currency"
+      },
+      "B12": {
+        "formula": "Inputs!B5"
+      },
+      "A13": {
+        "value": "PV cost advantage (optional)"
+      },
+      "B13": {
+        "formula": "IF(Inputs!B33>0,SUM('3-Year TCO'!B39:D39)-B9,\"n/a\")"
+      },
+      "A15": {
+        "value": "Annual comparison"
+      },
+      "B15": {
+        "value": "Year 1"
+      },
+      "C15": {
+        "value": "Year 2"
+      },
+      "D15": {
+        "value": "Year 3"
+      },
+      "A16": {
+        "value": "Total AI TCO"
+      },
+      "B16": {
+        "formula": "'3-Year TCO'!B29"
+      },
+      "C16": {
+        "formula": "'3-Year TCO'!C29"
+      },
+      "D16": {
+        "formula": "'3-Year TCO'!D29"
+      },
+      "A17": {
+        "value": "Operating AI TCO"
+      },
+      "B17": {
+        "formula": "'3-Year TCO'!B22"
+      },
+      "C17": {
+        "formula": "'3-Year TCO'!C22"
+      },
+      "D17": {
+        "formula": "'3-Year TCO'!D22"
+      },
+      "A18": {
+        "value": "AI cost / successful task incl upfront"
+      },
+      "B18": {
+        "formula": "'3-Year TCO'!B33"
+      },
+      "C18": {
+        "formula": "'3-Year TCO'!C33"
+      },
+      "D18": {
+        "formula": "'3-Year TCO'!D33"
+      },
+      "A19": {
+        "value": "AI operating cost / successful task"
+      },
+      "B19": {
+        "formula": "'3-Year TCO'!B34"
+      },
+      "C19": {
+        "formula": "'3-Year TCO'!C34"
+      },
+      "D19": {
+        "formula": "'3-Year TCO'!D34"
+      },
+      "A20": {
+        "value": "Human-only baseline"
+      },
+      "B20": {
+        "formula": "IF(Inputs!$B$33>0,'3-Year TCO'!B35,\"n/a\")"
+      },
+      "C20": {
+        "formula": "IF(Inputs!$B$33>0,'3-Year TCO'!C35,\"n/a\")"
+      },
+      "D20": {
+        "formula": "IF(Inputs!$B$33>0,'3-Year TCO'!D35,\"n/a\")"
+      },
+      "A21": {
+        "value": "Net cost advantage"
+      },
+      "B21": {
+        "formula": "IF(Inputs!$B$33>0,'3-Year TCO'!B36,\"n/a\")"
+      },
+      "C21": {
+        "formula": "IF(Inputs!$B$33>0,'3-Year TCO'!C36,\"n/a\")"
+      },
+      "D21": {
+        "formula": "IF(Inputs!$B$33>0,'3-Year TCO'!D36,\"n/a\")"
+      },
+      "A22": {
+        "value": "Successful tasks"
+      },
+      "B22": {
+        "formula": "'3-Year TCO'!B8"
+      },
+      "C22": {
+        "formula": "'3-Year TCO'!C8"
+      },
+      "D22": {
+        "formula": "'3-Year TCO'!D8"
+      },
+      "A25": {
+        "value": "Year 1 operating cost mix"
+      },
+      "B25": {
+        "value": "Amount"
+      },
+      "C25": {
+        "value": "Share"
+      },
+      "A26": {
+        "value": "Model input"
+      },
+      "B26": {
+        "formula": "'3-Year TCO'!B11"
+      },
+      "C26": {
+        "formula": "IFERROR(B26/$B$7,0)"
+      },
+      "A27": {
+        "value": "Model output"
+      },
+      "B27": {
+        "formula": "'3-Year TCO'!B12"
+      },
+      "C27": {
+        "formula": "IFERROR(B27/$B$7,0)"
+      },
+      "A28": {
+        "value": "Other tools"
+      },
+      "B28": {
+        "formula": "'3-Year TCO'!B13"
+      },
+      "C28": {
+        "formula": "IFERROR(B28/$B$7,0)"
+      },
+      "A29": {
+        "value": "Infrastructure"
+      },
+      "B29": {
+        "formula": "'3-Year TCO'!B14"
+      },
+      "C29": {
+        "formula": "IFERROR(B29/$B$7,0)"
+      },
+      "A30": {
+        "value": "Monitoring"
+      },
+      "B30": {
+        "formula": "'3-Year TCO'!B15"
+      },
+      "C30": {
+        "formula": "IFERROR(B30/$B$7,0)"
+      },
+      "A31": {
+        "value": "Licenses"
+      },
+      "B31": {
+        "formula": "'3-Year TCO'!B16"
+      },
+      "C31": {
+        "formula": "IFERROR(B31/$B$7,0)"
+      },
+      "A32": {
+        "value": "Human review"
+      },
+      "B32": {
+        "formula": "'3-Year TCO'!B17"
+      },
+      "C32": {
+        "formula": "IFERROR(B32/$B$7,0)"
+      },
+      "A33": {
+        "value": "Rework"
+      },
+      "B33": {
+        "formula": "'3-Year TCO'!B18"
+      },
+      "C33": {
+        "formula": "IFERROR(B33/$B$7,0)"
+      },
+      "A34": {
+        "value": "Support"
+      },
+      "B34": {
+        "formula": "'3-Year TCO'!B19"
+      },
+      "C34": {
+        "formula": "IFERROR(B34/$B$7,0)"
+      },
+      "A35": {
+        "value": "Contingency"
+      },
+      "B35": {
+        "formula": "'3-Year TCO'!B21"
+      },
+      "C35": {
+        "formula": "IFERROR(B35/$B$7,0)"
+      },
+      "A38": {
+        "value": "Human-only comparison OFF by default; enable by entering a validated manual time >0 on Inputs."
+      },
+      "A39": {
+        "value": "Net advantage compares undiscounted totals; PV advantage discounts BOTH options consistently."
+      },
+      "A40": {
+        "value": "Default rates and recovery assumptions are illustrative, not independently verified market data."
+      }
+    },
+    "Guide": {
+      "A4": {
+        "value": "Topic"
+      },
+      "B4": {
+        "value": "Explanation"
+      },
+      "A5": {
+        "value": "Purpose"
+      },
+      "B5": {
+        "value": "Estimate the full 3-year cost of operating an AI workflow, not ROI or a vendor quote."
+      },
+      "A6": {
+        "value": "Inputs"
+      },
+      "B6": {
+        "value": "Blue cells only. All numbers are illustrative and should be replaced with your assumptions."
+      },
+      "A7": {
+        "value": "Horizon"
+      },
+      "B7": {
+        "value": "Fixed three-year model. There is no unused planning-horizon input."
+      },
+      "A8": {
+        "value": "Successful outcomes"
+      },
+      "B8": {
+        "value": "First-pass successes plus recovered failures; unrecovered failures excluded."
+      },
+      "A9": {
+        "value": "Rework"
+      },
+      "B9": {
+        "value": "Recovery defaults to an illustrative 80%. Rework cost is assumed to include all incremental remediation (including extra tokens and review); replace with observed task-level cost."
+      },
+      "A10": {
+        "value": "Inflation"
+      },
+      "B10": {
+        "value": "Annual token price change is a user-selected scenario (0% default); annual inflation applies to labor, rework and fixed monthly costs."
+      },
+      "A11": {
+        "value": "Scaling"
+      },
+      "B11": {
+        "value": "Yes toggles apply a linear volume factor in addition to inflation; No applies inflation alone."
+      },
+      "A12": {
+        "value": "Discounting"
+      },
+      "B12": {
+        "value": "Upfront spend is at t=0; each year's operating costs are discounted at year-end."
+      },
+      "A13": {
+        "value": "Human-only baseline"
+      },
+      "B13": {
+        "value": "Human-only baseline is OFF by default (0 minutes). Only enable after checking comparable quality and scope. Headline TCO is independent of this optional scenario."
+      },
+      "A15": {
+        "value": "Limitations"
+      },
+      "A16": {
+        "value": "Comparability"
+      },
+      "B16": {
+        "value": "AI and manual outcomes must be comparable before treating cost advantage as financial savings."
+      },
+      "A17": {
+        "value": "Currencies"
+      },
+      "B17": {
+        "value": "Currency dropdown is a display unit, not an FX converter; enter all amounts in one currency."
+      },
+      "A18": {
+        "value": "Scope"
+      },
+      "B18": {
+        "value": "Does not automatically include taxes, working capital, opportunity cost, carbon or regulatory impacts."
+      },
+      "A19": {
+        "value": "Source"
+      },
+      "B19": {
+        "value": "All starting inputs are hypothetical AInternals examples; model pricing must be verified externally."
+      },
+      "A20": {
+        "value": "Discounted comparison"
+      },
+      "B20": {
+        "value": "Both AI and human operating costs are discounted at year-end; AI upfront spend is counted at t=0. PV cost advantage is shown separately from nominal advantage."
+      },
+      "A21": {
+        "value": "Price provenance"
+      },
+      "B21": {
+        "value": "Default $2/$10 per million token prices are illustrative placeholders, not attributed to a specific model or verified date. Enter source/model/date on Inputs before publishing scenario results."
+      },
+      "A22": {
+        "value": "Editable cells"
+      },
+      "B22": {
+        "value": "Blue cells on Inputs are intended for editing. Do not edit formulas on the model or dashboard."
+      }
+    }
+  }
+}

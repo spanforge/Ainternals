@@ -48,3 +48,9 @@ next-env.d.ts
 
 # Isolated local browser QA profile
 /.browser-qa/
+
+# Local TCO calculator documents
+AInternals_AI_TCO_Calculator_V1_0_Final (1).xlsx
+AInternals_AI_TCO_Calculator_V1_0_User_Guide_Final (1).docx
+AInternals_AI_TCO_Online_BRD_V1_1.md
+AInternals_AI_TCO_Online_Implementation_Spec_V1_1.md

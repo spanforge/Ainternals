@@ -56,6 +56,18 @@ The canonical URL is `https://ainternals.com` in `app/layout.tsx`; configure tha
 
 The site uses local system fonts and has no external font dependency. Generated build output, installed dependencies, local caches, environment files, and Vercel project state are excluded by `.gitignore`. Source files use UTF-8 without a byte-order mark, as specified in `.editorconfig`.
 
+## AI workflow TCO calculator
+
+`/tools/ai-tco-calculator` estimates three years of AI workflow ownership costs, including model usage, infrastructure, review, remediation, support and upfront investment. All 33 original inputs remain available, with an optional human-only comparison, annual outcomes, cost charts, local scenario JSON import/export and print-to-PDF reports.
+
+The calculator integrates with the existing Price Watch data. Applying a model fills the matching USD rates and source reference; request-size changes recheck billing tiers locally. Missing, stale, ambiguous, expired or out-of-capacity pricing pauses linked results. Manual pricing remains available, and imported scenarios preserve their saved rate snapshots. No financial assumptions or results are sent to the pricing service or providers.
+
+The searchable, printable field guide is at `/tools/ai-tco-calculator/user-guide`. Feedback and discrepancy reports go to `sriram@sriramadvisory.com`. Reporting links include only a generic email subject; users choose what to share.
+
+Calculator routes have no analytics or session replay. Existing Vercel Analytics remains on marketing routes. Original workbook, user document and requirement/specification files remain ignored by Git. Internal regression fixtures and tests document the implementation; the public calculator displays no source formulas.
+
+See [the initial feedback release record](docs/tco/release-0.4.0.md) for verification and owner-deferred checks. Pushes to the existing repository's `main` branch use its Vercel production integration.
+
 ## AI Model Price Watch
 
 `/prices` compares a curated set of 23 current API models across 10 providers with provider filtering, model search, and sortable input/output rates. The homepage includes a pausable ticker with a reduced-motion scrolling fallback. Official pricing links remain available when data cannot be fetched.

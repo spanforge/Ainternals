@@ -1,0 +1,210 @@
+{
+  "notes": [
+    "Human-only comparison is OFF by default; enabling it does not establish equivalent outcome quality.",
+    "Rework cost is assumed to cover extra AI usage, review and other remediation; avoid double counting."
+  ],
+  "guide": [
+    {
+      "title": "What this tool estimates",
+      "text": "Explore the total cost of an AI workflow over three years, including technology, people, setup and ongoing operations. This is a cost estimate, not ROI, a vendor quote or a savings guarantee."
+    },
+    {
+      "title": "Build your scenario",
+      "text": "Change the assumptions on the left and your results update automatically. Starting values are illustrative examples. Replace them with measured usage and verified prices before relying on the results."
+    },
+    {
+      "title": "Planning period",
+      "text": "Every scenario covers three years. Annual growth and cost assumptions help you explore how the workflow may change over that period."
+    },
+    {
+      "title": "Successful outcomes",
+      "text": "Successful tasks include those completed on the first pass and those recovered after an initial failure. Unresolved failures are excluded from successful-task results."
+    },
+    {
+      "title": "Review and rework",
+      "text": "Human review applies to every attempted task. Rework covers every initially failed task, including failures that are later recovered. Include extra processing and review in your rework assumption, and avoid counting the same expense twice."
+    },
+    {
+      "title": "Changing costs",
+      "text": "Operating inflation affects people, rework and ongoing monthly expenses. The token price change assumption applies only to input and output token rates. These are scenario assumptions, not forecasts."
+    },
+    {
+      "title": "Scaling with demand",
+      "text": "Choose whether each monthly expense grows with task volume. Expenses that do not scale with demand still reflect the operating inflation assumption."
+    },
+    {
+      "title": "Upfront and present value",
+      "text": "Setup expenses are paid at the start and appear only in Year 1. Present value expresses future operating expenses in today's terms using your discount rate. Upfront expenses are included at their original amount."
+    },
+    {
+      "title": "Human-only comparison",
+      "text": "This comparison is off until you enter a human-only time per task. Use comparable tasks, quality, scope and outcomes. A modeled cost advantage does not guarantee cash savings."
+    },
+    {
+      "title": "Currency",
+      "text": "Select the currency used for all your monetary assumptions. Changing the currency changes labels only; it does not convert amounts."
+    },
+    {
+      "title": "What is excluded",
+      "text": "Taxes, working capital, opportunity cost, carbon, regulatory impacts and other externalities are not automatically included. Revenue and ROI are outside this calculator's scope."
+    },
+    {
+      "title": "Verify your pricing",
+      "text": "Default token prices are illustrative and unverified. Choose a model from Price Watch to use a fresh published snapshot and matching request tier, or enter verified manual rates. Price Watch requires USD and a single-request task; mixed request sizes and multi-call workflows need a verified blended manual rate. The reference records the model, scope, source and fetch time."
+    },
+    {
+      "title": "Linked model pricing",
+      "text": "Choose a model and the applicable processing mode, region, billing period or required cache duration. Confirm that tokens per attempt describe one billed request. Use these prices applies the matching USD input and output rates. Token-count changes recheck the request tier locally. Unavailable, stale, expired, ambiguous or out-of-capacity pricing pauses linked results and exports. Reload and apply fresh matching rates, adjust the request size, or switch to manual pricing. Other operating assumptions remain yours to enter."
+    },
+    {
+      "title": "Reading the results",
+      "text": "Dashboard totals include upfront investment. Operating costs exclude setup expenses. Net cost advantage compares undiscounted totals; present-value advantage compares costs on the same discounted basis."
+    },
+    {
+      "title": "Check before deciding",
+      "text": "Validate actual token usage, review times, completion and recovery rates, remediation costs and scaling assumptions. If comparing with human-only work, confirm equivalent outcomes."
+    },
+    {
+      "title": "Save and share",
+      "text": "Export a scenario JSON file to save your assumptions and import it to continue later. Print or save a PDF to share the results. Refreshing the page resets your scenario. Downloaded files contain your assumptions; store and share them carefully. Price Watch rates and their source reference are included in your saved scenario. Importing preserves the snapshot in manual mode; select and apply a model again only if you want to update it."
+    },
+    {
+      "title": "Privacy",
+      "text": "Your assumptions are processed in your browser and kept in memory. The calculator loads public model-pricing data from this site, whose pricing service retrieves provider documents. Request sizes, costs, scenarios and results are not sent to that service or to providers. No calculator analytics or session replay is enabled."
+    }
+  ],
+  "annualResults": [
+    {
+      "key": "attempts",
+      "label": "Attempted tasks"
+    },
+    {
+      "key": "firstPass",
+      "label": "First-pass successes"
+    },
+    {
+      "key": "recovered",
+      "label": "Recovered tasks"
+    },
+    {
+      "key": "successful",
+      "label": "Total successful tasks"
+    },
+    {
+      "key": "unresolved",
+      "label": "Unresolved failures"
+    },
+    {
+      "key": "inputApi",
+      "label": "Input API cost"
+    },
+    {
+      "key": "outputApi",
+      "label": "Output API cost"
+    },
+    {
+      "key": "otherApi",
+      "label": "Other API & tools"
+    },
+    {
+      "key": "cloud",
+      "label": "Cloud infrastructure"
+    },
+    {
+      "key": "monitoring",
+      "label": "Monitoring & security"
+    },
+    {
+      "key": "licenses",
+      "label": "Software & licenses"
+    },
+    {
+      "key": "review",
+      "label": "Human review"
+    },
+    {
+      "key": "rework",
+      "label": "Failed-task rework"
+    },
+    {
+      "key": "support",
+      "label": "Support & maintenance"
+    },
+    {
+      "key": "recurringSubtotal",
+      "label": "Recurring subtotal"
+    },
+    {
+      "key": "contingency",
+      "label": "Operating contingency"
+    },
+    {
+      "key": "operatingTco",
+      "label": "Annual operating TCO"
+    },
+    {
+      "key": "implementation",
+      "label": "One-time implementation"
+    },
+    {
+      "key": "dataPrep",
+      "label": "One-time data preparation"
+    },
+    {
+      "key": "training",
+      "label": "One-time training"
+    },
+    {
+      "key": "compliance",
+      "label": "One-time compliance"
+    },
+    {
+      "key": "yearUpfront",
+      "label": "One-time subtotal"
+    },
+    {
+      "key": "totalTco",
+      "label": "Total annual TCO"
+    },
+    {
+      "key": "cumulativeTco",
+      "label": "Cumulative TCO"
+    },
+    {
+      "key": "costPerAttempt",
+      "label": "Cost / attempted task"
+    },
+    {
+      "key": "costPerSuccessfulIncludingUpfront",
+      "label": "Cost per successful task, including setup"
+    },
+    {
+      "key": "operatingCostPerSuccessful",
+      "label": "Operating cost / successful task"
+    },
+    {
+      "key": "manualBaseline",
+      "label": "Human-only baseline cost"
+    },
+    {
+      "key": "netAdvantage",
+      "label": "Net cost advantage vs human-only"
+    },
+    {
+      "key": "pvOperating",
+      "label": "Present value of annual operating costs"
+    },
+    {
+      "key": "pvCumulativeIncludingUpfront",
+      "label": "Cumulative present-value cost, including setup"
+    },
+    {
+      "key": "pvManual",
+      "label": "Present value of human-only costs"
+    },
+    {
+      "key": "pvAdvantageYear",
+      "label": "Annual present-value cost advantage"
+    }
+  ]
+}

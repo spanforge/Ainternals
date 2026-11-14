@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "checkedAt": "2026-11-14T01:44:02.817Z",
+  "fixtureProvenance": "Real existing Price Watch endpoint, using fresh official provider snapshots; no fabricated rates",
+  "catalogModels": 23,
+  "model": "gpt-6.1-sol",
+  "checks": [
+    "model/billing handoff",
+    "single-request acknowledgement",
+    "non-USD blocking without silent conversion",
+    "exact input/output rates",
+    "read-only linked fields",
+    "pricing source reference",
+    "TCO result uses selected rates",
+    "real context-tier boundary recheck",
+    "invalid linked request hides results and disables export",
+    "manual detach preserves editable snapshot",
+    "no assumptions sent to pricing or providers",
+    "390px mobile without overflow",
+    "no browser exceptions"
+  ],
+  "freshModels": 23
+}

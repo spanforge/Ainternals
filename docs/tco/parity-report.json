@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-11-14T01:51:20.649Z",
+  "workbookVersion": "workbook-v1.0",
+  "workbookSha256": "eb287d7f01acdb1ea02855280ae6657c2906f6ee964b811587566a03e97ecf3c",
+  "fixtureProvenance": "OOXML source formulas executed by an independent limited Excel formula interpreter; no cached values used. Interpreter anchored to published Year 1 worked examples.",
+  "mappedFormulas": 174,
+  "coveredFormulas": 174,
+  "coveragePercent": 100,
+  "scenarios": 58,
+  "assertions": 10092,
+  "unexplainedDifferences": 0,
+  "automatedParity": "PASS",
+  "publicReleaseGate": "OWNER_APPROVED_WITH_DEFERRED_CHECKS",
+  "reviewerSignoff": "DEFERRED_BY_OWNER",
+  "remainingChecks": [
+    "Independent reviewer verification of reference interpreter and fixtures",
+    "Browser accessibility, responsive layout and network privacy review"
+  ],
+  "sourceDiscrepancy": "BRD says 31 populated annual model lines; actual workbook has 33, all included."
+}

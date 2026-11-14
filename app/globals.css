@@ -82,11 +82,19 @@ main {
   html {
   scroll-behavior:auto
 }
+
 *,*::before,*::after {
   animation:none!important;
   transition:none!important
 }
 
+}
+
+@media print {
+  body:has([data-tco-calculator]) { background: white; color: #111; }
+  body:has([data-tco-calculator]) > header,
+  body:has([data-tco-calculator]) > footer,
+  body:has([data-tco-calculator]) > .skip-to-content { display: none; }
 }
 
 

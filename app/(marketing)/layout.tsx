@@ -1,8 +1,9 @@
 import { connection } from 'next/server';
 import ModelPriceTicker from '@/components/ModelPriceTicker';
+import { Analytics } from '@vercel/analytics/next';
 
 // Informational routes share this ticker; tools such as /prices stay outside this group.
 export default async function MarketingLayout({ children }: { children: React.ReactNode }) {
   await connection();
-  return <><ModelPriceTicker />{children}</>;
+  return <><ModelPriceTicker />{children}<Analytics /></>;
 }
