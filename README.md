@@ -70,6 +70,8 @@ See [the initial feedback release record](docs/tco/release-0.4.0.md) for verific
 
 ## AI Model Price Watch
 
+**Version 1.1: implementation complete and owner-accepted (14 November 2026).** Production deployment verification is tracked separately from feature completion.
+
 Price Watch 1.1 adds baseline differences, multi-size request mixes, budget and demand planning, independently sourced suitability facts, local usage CSV import, portable JSON comparison snapshots and readable PDF reports. Workload sharing is explicit and optional; editing does not populate the address bar. A user-confirmed browser-local handoff carries a workload and effective rate snapshot into TCO without transmitting financial assumptions. See [the local planner documentation](docs/pricing-planner-1.1.md).
 
 `/prices` compares a curated set of 23 current API models across 10 providers with provider filtering, model search, and sortable input/output rates. The homepage includes a pausable ticker with a reduced-motion scrolling fallback. Official pricing links remain available when data cannot be fetched.

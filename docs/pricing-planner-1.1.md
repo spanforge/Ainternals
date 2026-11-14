@@ -1,5 +1,11 @@
 # Price Watch 1.1 — local implementation
 
+**Feature status: DONE — implementation complete and accepted by the owner on 14 November 2026.**
+
+Verification: 121 automated tests, ESLint, production build and desktop/mobile browser checks passed. Completion covers the agreed 1.1 scope, including comparisons, workload mixes, budget scenarios, capability filters, reports, snapshots, explicit sharing, TCO handoff and feedback reporting. Deployment of this version has not been verified in this session.
+
+Price history, market price-change charts, expanded cache pricing and a price index remain separate future enhancements. Ongoing provider-price maintenance and broader capability reviews are operational follow-up, not unfinished 1.1 implementation.
+
 Local entry point: `http://localhost:3000/prices`. This iteration was requested for localhost review; it does not publish or push the changes.
 
 ## Decision tools

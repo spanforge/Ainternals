@@ -1,5 +1,7 @@
 # Price Watch release candidate
 
+**Price Watch 1.1 feature status: DONE.** The owner accepted the completed implementation on 14 November 2026. See [the 1.1 completion record](pricing-planner-1.1.md) for scope and verification. The production checklist below remains separate; this status does not assert that the latest version has been deployed.
+
 ## Included
 
 - Official-source pricing for 23 selected models from 10 providers.
